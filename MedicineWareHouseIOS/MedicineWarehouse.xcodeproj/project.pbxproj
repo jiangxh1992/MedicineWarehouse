@@ -1,0 +1,748 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69B2BE26219D4C5600A3BD9A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */; };
+		69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */; };
+		69D40F76219AEFD8008E9A55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F75219AEFD8008E9A55 /* AppDelegate.m */; };
+		69D40F79219AEFD8008E9A55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F78219AEFD8008E9A55 /* ViewController.m */; };
+		69D40F7C219AEFD8008E9A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D40F7A219AEFD8008E9A55 /* Main.storyboard */; };
+		69D40F7E219AEFDD008E9A55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D40F7D219AEFDD008E9A55 /* Assets.xcassets */; };
+		69D40F81219AEFDD008E9A55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D40F7F219AEFDD008E9A55 /* LaunchScreen.storyboard */; };
+		69D40F84219AEFDD008E9A55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F83219AEFDD008E9A55 /* main.m */; };
+		69D40F8E219AEFDD008E9A55 /* MedicineWarehouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F8D219AEFDD008E9A55 /* MedicineWarehouseTests.m */; };
+		69D40F99219AEFDD008E9A55 /* MedicineWarehouseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F98219AEFDD008E9A55 /* MedicineWarehouseUITests.m */; };
+		69D40FAD219C3ABC008E9A55 /* XHConstGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FAC219C3ABC008E9A55 /* XHConstGlobal.m */; };
+		69D40FB1219C3B79008E9A55 /* XHNetGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FB0219C3B79008E9A55 /* XHNetGlobal.m */; };
+		69D40FC9219C3DAE008E9A55 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FB7219C3DAE008E9A55 /* MJPropertyType.m */; };
+		69D40FCA219C3DAE008E9A55 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FBA219C3DAE008E9A55 /* NSObject+MJKeyValue.m */; };
+		69D40FCB219C3DAE008E9A55 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FBB219C3DAE008E9A55 /* MJProperty.m */; };
+		69D40FCC219C3DAE008E9A55 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FBD219C3DAE008E9A55 /* NSObject+MJCoding.m */; };
+		69D40FCD219C3DAE008E9A55 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FBF219C3DAE008E9A55 /* MJExtensionConst.m */; };
+		69D40FCE219C3DAE008E9A55 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FC0219C3DAE008E9A55 /* NSObject+MJProperty.m */; };
+		69D40FCF219C3DAE008E9A55 /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FC2219C3DAE008E9A55 /* NSObject+MJClass.m */; };
+		69D40FD0219C3DAE008E9A55 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FC3219C3DAE008E9A55 /* NSString+MJExtension.m */; };
+		69D40FD1219C3DAE008E9A55 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FC4219C3DAE008E9A55 /* MJPropertyKey.m */; };
+		69D40FD2219C3DAE008E9A55 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40FC8219C3DAE008E9A55 /* MJFoundation.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69D40F8A219AEFDD008E9A55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D40F69219AEFD8008E9A55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69D40F70219AEFD8008E9A55;
+			remoteInfo = MedicineWarehouse;
+		};
+		69D40F95219AEFDD008E9A55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D40F69219AEFD8008E9A55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69D40F70219AEFD8008E9A55;
+			remoteInfo = MedicineWarehouse;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		69B2BE24219D4C5600A3BD9A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		69B2BE25219D4C5600A3BD9A /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		69B2BE28219D4CD400A3BD9A /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
+		69D40F71219AEFD8008E9A55 /* MedicineWarehouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineWarehouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D40F74219AEFD8008E9A55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		69D40F75219AEFD8008E9A55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69D40F77219AEFD8008E9A55 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		69D40F78219AEFD8008E9A55 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		69D40F7B219AEFD8008E9A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69D40F7D219AEFDD008E9A55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69D40F80219AEFDD008E9A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		69D40F82219AEFDD008E9A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69D40F83219AEFDD008E9A55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69D40F89219AEFDD008E9A55 /* MedicineWarehouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedicineWarehouseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D40F8D219AEFDD008E9A55 /* MedicineWarehouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineWarehouseTests.m; sourceTree = "<group>"; };
+		69D40F8F219AEFDD008E9A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69D40F94219AEFDD008E9A55 /* MedicineWarehouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedicineWarehouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D40F98219AEFDD008E9A55 /* MedicineWarehouseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineWarehouseUITests.m; sourceTree = "<group>"; };
+		69D40F9A219AEFDD008E9A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69D40FAB219C3ABC008E9A55 /* XHConstGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHConstGlobal.h; sourceTree = "<group>"; };
+		69D40FAC219C3ABC008E9A55 /* XHConstGlobal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHConstGlobal.m; sourceTree = "<group>"; };
+		69D40FAF219C3B79008E9A55 /* XHNetGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHNetGlobal.h; sourceTree = "<group>"; };
+		69D40FB0219C3B79008E9A55 /* XHNetGlobal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHNetGlobal.m; sourceTree = "<group>"; };
+		69D40FB4219C3DAE008E9A55 /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
+		69D40FB5219C3DAE008E9A55 /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
+		69D40FB6219C3DAE008E9A55 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		69D40FB7219C3DAE008E9A55 /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
+		69D40FB8219C3DAE008E9A55 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		69D40FB9219C3DAE008E9A55 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
+		69D40FBA219C3DAE008E9A55 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		69D40FBB219C3DAE008E9A55 /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		69D40FBC219C3DAE008E9A55 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		69D40FBD219C3DAE008E9A55 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		69D40FBE219C3DAE008E9A55 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		69D40FBF219C3DAE008E9A55 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
+		69D40FC0219C3DAE008E9A55 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		69D40FC1219C3DAE008E9A55 /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
+		69D40FC2219C3DAE008E9A55 /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
+		69D40FC3219C3DAE008E9A55 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		69D40FC4219C3DAE008E9A55 /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
+		69D40FC5219C3DAE008E9A55 /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		69D40FC6219C3DAE008E9A55 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		69D40FC7219C3DAE008E9A55 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		69D40FC8219C3DAE008E9A55 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		69D40FD3219C4123008E9A55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69D40F6E219AEFD8008E9A55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F86219AEFDD008E9A55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F91219AEFDD008E9A55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69B2BE21219D4C3500A3BD9A /* GCDAsynSocket */ = {
+			isa = PBXGroup;
+			children = (
+				69B2BE28219D4CD400A3BD9A /* CocoaAsyncSocket.h */,
+				69B2BE24219D4C5600A3BD9A /* GCDAsyncSocket.h */,
+				69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */,
+				69B2BE25219D4C5600A3BD9A /* GCDAsyncUdpSocket.h */,
+				69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCDAsynSocket;
+			sourceTree = "<group>";
+		};
+		69B2BE29219D4E9F00A3BD9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69D40F68219AEFD8008E9A55 = {
+			isa = PBXGroup;
+			children = (
+				69D40F73219AEFD8008E9A55 /* MedicineWarehouse */,
+				69D40F8C219AEFDD008E9A55 /* MedicineWarehouseTests */,
+				69D40F97219AEFDD008E9A55 /* MedicineWarehouseUITests */,
+				69D40F72219AEFD8008E9A55 /* Products */,
+				69B2BE29219D4E9F00A3BD9A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		69D40F72219AEFD8008E9A55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69D40F71219AEFD8008E9A55 /* MedicineWarehouse.app */,
+				69D40F89219AEFDD008E9A55 /* MedicineWarehouseTests.xctest */,
+				69D40F94219AEFDD008E9A55 /* MedicineWarehouseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69D40F73219AEFD8008E9A55 /* MedicineWarehouse */ = {
+			isa = PBXGroup;
+			children = (
+				69D40FB2219C3D7D008E9A55 /* Common */,
+				69D40FA6219C19F2008E9A55 /* Class */,
+				69D40FA7219C1A06008E9A55 /* SupportingFiles */,
+				69D40FD3219C4123008E9A55 /* PrefixHeader.pch */,
+				69D40F74219AEFD8008E9A55 /* AppDelegate.h */,
+				69D40F75219AEFD8008E9A55 /* AppDelegate.m */,
+				69D40F77219AEFD8008E9A55 /* ViewController.h */,
+				69D40F78219AEFD8008E9A55 /* ViewController.m */,
+				69D40F7A219AEFD8008E9A55 /* Main.storyboard */,
+				69D40F7D219AEFDD008E9A55 /* Assets.xcassets */,
+				69D40F7F219AEFDD008E9A55 /* LaunchScreen.storyboard */,
+				69D40F82219AEFDD008E9A55 /* Info.plist */,
+			);
+			path = MedicineWarehouse;
+			sourceTree = "<group>";
+		};
+		69D40F8C219AEFDD008E9A55 /* MedicineWarehouseTests */ = {
+			isa = PBXGroup;
+			children = (
+				69D40F8D219AEFDD008E9A55 /* MedicineWarehouseTests.m */,
+				69D40F8F219AEFDD008E9A55 /* Info.plist */,
+			);
+			path = MedicineWarehouseTests;
+			sourceTree = "<group>";
+		};
+		69D40F97219AEFDD008E9A55 /* MedicineWarehouseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				69D40F98219AEFDD008E9A55 /* MedicineWarehouseUITests.m */,
+				69D40F9A219AEFDD008E9A55 /* Info.plist */,
+			);
+			path = MedicineWarehouseUITests;
+			sourceTree = "<group>";
+		};
+		69D40FA6219C19F2008E9A55 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				69D40FAE219C3B41008E9A55 /* Tools */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		69D40FA7219C1A06008E9A55 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				69D40F83219AEFDD008E9A55 /* main.m */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		69D40FAE219C3B41008E9A55 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				69D40FAB219C3ABC008E9A55 /* XHConstGlobal.h */,
+				69D40FAC219C3ABC008E9A55 /* XHConstGlobal.m */,
+				69D40FAF219C3B79008E9A55 /* XHNetGlobal.h */,
+				69D40FB0219C3B79008E9A55 /* XHNetGlobal.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		69D40FB2219C3D7D008E9A55 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				69B2BE21219D4C3500A3BD9A /* GCDAsynSocket */,
+				69D40FB3219C3DAE008E9A55 /* MJExtension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		69D40FB3219C3DAE008E9A55 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				69D40FB4219C3DAE008E9A55 /* MJPropertyKey.h */,
+				69D40FB5219C3DAE008E9A55 /* NSObject+MJClass.h */,
+				69D40FB6219C3DAE008E9A55 /* NSString+MJExtension.h */,
+				69D40FB7219C3DAE008E9A55 /* MJPropertyType.m */,
+				69D40FB8219C3DAE008E9A55 /* NSObject+MJProperty.h */,
+				69D40FB9219C3DAE008E9A55 /* MJExtensionConst.h */,
+				69D40FBA219C3DAE008E9A55 /* NSObject+MJKeyValue.m */,
+				69D40FBB219C3DAE008E9A55 /* MJProperty.m */,
+				69D40FBC219C3DAE008E9A55 /* MJFoundation.h */,
+				69D40FBD219C3DAE008E9A55 /* NSObject+MJCoding.m */,
+				69D40FBE219C3DAE008E9A55 /* MJExtension.h */,
+				69D40FBF219C3DAE008E9A55 /* MJExtensionConst.m */,
+				69D40FC0219C3DAE008E9A55 /* NSObject+MJProperty.m */,
+				69D40FC1219C3DAE008E9A55 /* MJPropertyType.h */,
+				69D40FC2219C3DAE008E9A55 /* NSObject+MJClass.m */,
+				69D40FC3219C3DAE008E9A55 /* NSString+MJExtension.m */,
+				69D40FC4219C3DAE008E9A55 /* MJPropertyKey.m */,
+				69D40FC5219C3DAE008E9A55 /* MJProperty.h */,
+				69D40FC6219C3DAE008E9A55 /* NSObject+MJKeyValue.h */,
+				69D40FC7219C3DAE008E9A55 /* NSObject+MJCoding.h */,
+				69D40FC8219C3DAE008E9A55 /* MJFoundation.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69D40F70219AEFD8008E9A55 /* MedicineWarehouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69D40F9D219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouse" */;
+			buildPhases = (
+				69D40F6D219AEFD8008E9A55 /* Sources */,
+				69D40F6E219AEFD8008E9A55 /* Frameworks */,
+				69D40F6F219AEFD8008E9A55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MedicineWarehouse;
+			productName = MedicineWarehouse;
+			productReference = 69D40F71219AEFD8008E9A55 /* MedicineWarehouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69D40F88219AEFDD008E9A55 /* MedicineWarehouseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69D40FA0219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseTests" */;
+			buildPhases = (
+				69D40F85219AEFDD008E9A55 /* Sources */,
+				69D40F86219AEFDD008E9A55 /* Frameworks */,
+				69D40F87219AEFDD008E9A55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69D40F8B219AEFDD008E9A55 /* PBXTargetDependency */,
+			);
+			name = MedicineWarehouseTests;
+			productName = MedicineWarehouseTests;
+			productReference = 69D40F89219AEFDD008E9A55 /* MedicineWarehouseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		69D40F93219AEFDD008E9A55 /* MedicineWarehouseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69D40FA3219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseUITests" */;
+			buildPhases = (
+				69D40F90219AEFDD008E9A55 /* Sources */,
+				69D40F91219AEFDD008E9A55 /* Frameworks */,
+				69D40F92219AEFDD008E9A55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69D40F96219AEFDD008E9A55 /* PBXTargetDependency */,
+			);
+			name = MedicineWarehouseUITests;
+			productName = MedicineWarehouseUITests;
+			productReference = 69D40F94219AEFDD008E9A55 /* MedicineWarehouseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69D40F69219AEFD8008E9A55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = xinhou;
+				TargetAttributes = {
+					69D40F70219AEFD8008E9A55 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					69D40F88219AEFDD008E9A55 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 69D40F70219AEFD8008E9A55;
+					};
+					69D40F93219AEFDD008E9A55 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 69D40F70219AEFD8008E9A55;
+					};
+				};
+			};
+			buildConfigurationList = 69D40F6C219AEFD8008E9A55 /* Build configuration list for PBXProject "MedicineWarehouse" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69D40F68219AEFD8008E9A55;
+			productRefGroup = 69D40F72219AEFD8008E9A55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69D40F70219AEFD8008E9A55 /* MedicineWarehouse */,
+				69D40F88219AEFDD008E9A55 /* MedicineWarehouseTests */,
+				69D40F93219AEFDD008E9A55 /* MedicineWarehouseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69D40F6F219AEFD8008E9A55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D40F81219AEFDD008E9A55 /* LaunchScreen.storyboard in Resources */,
+				69D40F7E219AEFDD008E9A55 /* Assets.xcassets in Resources */,
+				69D40F7C219AEFD8008E9A55 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F87219AEFDD008E9A55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F92219AEFDD008E9A55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69D40F6D219AEFD8008E9A55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D40F79219AEFD8008E9A55 /* ViewController.m in Sources */,
+				69D40FD1219C3DAE008E9A55 /* MJPropertyKey.m in Sources */,
+				69D40F84219AEFDD008E9A55 /* main.m in Sources */,
+				69D40FD2219C3DAE008E9A55 /* MJFoundation.m in Sources */,
+				69D40FCE219C3DAE008E9A55 /* NSObject+MJProperty.m in Sources */,
+				69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */,
+				69D40FAD219C3ABC008E9A55 /* XHConstGlobal.m in Sources */,
+				69D40FCB219C3DAE008E9A55 /* MJProperty.m in Sources */,
+				69D40FCA219C3DAE008E9A55 /* NSObject+MJKeyValue.m in Sources */,
+				69D40FD0219C3DAE008E9A55 /* NSString+MJExtension.m in Sources */,
+				69D40FCC219C3DAE008E9A55 /* NSObject+MJCoding.m in Sources */,
+				69D40FCD219C3DAE008E9A55 /* MJExtensionConst.m in Sources */,
+				69D40FC9219C3DAE008E9A55 /* MJPropertyType.m in Sources */,
+				69B2BE26219D4C5600A3BD9A /* GCDAsyncUdpSocket.m in Sources */,
+				69D40FCF219C3DAE008E9A55 /* NSObject+MJClass.m in Sources */,
+				69D40FB1219C3B79008E9A55 /* XHNetGlobal.m in Sources */,
+				69D40F76219AEFD8008E9A55 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F85219AEFDD008E9A55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D40F8E219AEFDD008E9A55 /* MedicineWarehouseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D40F90219AEFDD008E9A55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D40F99219AEFDD008E9A55 /* MedicineWarehouseUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69D40F8B219AEFDD008E9A55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69D40F70219AEFD8008E9A55 /* MedicineWarehouse */;
+			targetProxy = 69D40F8A219AEFDD008E9A55 /* PBXContainerItemProxy */;
+		};
+		69D40F96219AEFDD008E9A55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69D40F70219AEFD8008E9A55 /* MedicineWarehouse */;
+			targetProxy = 69D40F95219AEFDD008E9A55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69D40F7A219AEFD8008E9A55 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D40F7B219AEFD8008E9A55 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		69D40F7F219AEFDD008E9A55 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69D40F80219AEFDD008E9A55 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69D40F9B219AEFDD008E9A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		69D40F9C219AEFDD008E9A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69D40F9E219AEFDE008E9A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MedicineWarehouse/Common/GCDAsynSocket",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
+				INFOPLIST_FILE = MedicineWarehouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69D40F9F219AEFDE008E9A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MedicineWarehouse/Common/GCDAsynSocket",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
+				INFOPLIST_FILE = MedicineWarehouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69D40FA1219AEFDE008E9A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				INFOPLIST_FILE = MedicineWarehouseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedicineWarehouse.app/MedicineWarehouse";
+			};
+			name = Debug;
+		};
+		69D40FA2219AEFDE008E9A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				INFOPLIST_FILE = MedicineWarehouseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MedicineWarehouse.app/MedicineWarehouse";
+			};
+			name = Release;
+		};
+		69D40FA4219AEFDE008E9A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				INFOPLIST_FILE = MedicineWarehouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MedicineWarehouse;
+			};
+			name = Debug;
+		};
+		69D40FA5219AEFDE008E9A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4SYMZQA29;
+				INFOPLIST_FILE = MedicineWarehouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MedicineWarehouse;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69D40F6C219AEFD8008E9A55 /* Build configuration list for PBXProject "MedicineWarehouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D40F9B219AEFDD008E9A55 /* Debug */,
+				69D40F9C219AEFDD008E9A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69D40F9D219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D40F9E219AEFDE008E9A55 /* Debug */,
+				69D40F9F219AEFDE008E9A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69D40FA0219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D40FA1219AEFDE008E9A55 /* Debug */,
+				69D40FA2219AEFDE008E9A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69D40FA3219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D40FA4219AEFDE008E9A55 /* Debug */,
+				69D40FA5219AEFDE008E9A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69D40F69219AEFD8008E9A55 /* Project object */;
+}
