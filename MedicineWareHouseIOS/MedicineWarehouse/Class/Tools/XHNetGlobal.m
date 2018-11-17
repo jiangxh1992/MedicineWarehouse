@@ -139,8 +139,9 @@
     _isSocketConected = false;
     _socketDidConnected(@"服务器已断开");
     NSLog(@"服务器断开：%@",err);
-    _clientSocket.delegate = nil;
-    _clientSocket = nil;
+    [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:5003 error:nil];
+    //_clientSocket.delegate = nil;
+    //_clientSocket = nil;
 }
 
 @end

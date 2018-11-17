@@ -14,6 +14,9 @@
 #import "MJExtension.h"
 #import "XHNetGlobal.h"
 #import "XHConstGlobal.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+SGQRCode.h"
+#import "ParamBase.h"
 
 // 屏幕高度
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -25,6 +28,6 @@
 #define TextColorNormal RGBColor(100, 100, 100)
 // 通过RGB快速创建颜色
 #define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-
+#define RGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
 #endif /* PrefixHeader_pch */
