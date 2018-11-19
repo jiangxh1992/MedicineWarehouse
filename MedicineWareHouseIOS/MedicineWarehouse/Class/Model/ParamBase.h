@@ -10,15 +10,9 @@
 
 @interface ParamBase : NSObject
 
-/**
- *  请求类型
- */
-@property (nonatomic, assign) NSInteger type;
-
-/**
- *  药品id
- */
-@property (nonatomic, copy) NSString *medicine_id;
+@property (nonatomic, assign) NSInteger type;     // 请求类型
+@property (nonatomic, copy) NSString *medicine_id;// 药品id
+@property (nonatomic, assign) NSInteger num;      // 数量
 
 /**
  * param

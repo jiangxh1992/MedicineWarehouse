@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"右视图";
+    self.title = @"管理员";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 

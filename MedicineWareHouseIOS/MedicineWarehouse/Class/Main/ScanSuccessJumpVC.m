@@ -21,10 +21,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNavigationItem];
-    //[self setupLabel];
     
     _lbl_msg = [[UILabel alloc] init];
-    _lbl_msg.frame = CGRectMake(0, 200, self.view.frame.size.width, 30);
+    _lbl_msg.frame = CGRectMake(0, 100, self.view.frame.size.width, 30);
     _lbl_msg.textColor = [UIColor redColor];
     _lbl_msg.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_lbl_msg];
@@ -32,23 +31,36 @@
     // 扫描结果
     CGFloat label_Y = CGRectGetMaxY(_lbl_msg.frame);
     _lbl_res = [[UILabel alloc] init];
-    _lbl_res.frame = CGRectMake(0, label_Y, self.view.frame.size.width, 30);
+    _lbl_res.frame = CGRectMake(0, label_Y, self.view.frame.size.width, 300);
     _lbl_res.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_lbl_res];
+    
+    [self setupLabel];
+    
+    UIButton *addMedicineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addMedicineBtn setTitle:@"补药(10)" forState:UIControlStateNormal];
+    addMedicineBtn.titleLabel.textColor = [UIColor greenColor];
+    addMedicineBtn.backgroundColor = [UIColor orangeColor];
+    addMedicineBtn.frame = CGRectMake(0, CGRectGetMaxY(_lbl_res.frame), ScreenW, 30);
+    [addMedicineBtn addTarget:self action:@selector(ReqAddMedicine) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:addMedicineBtn];
 
     
     XHNetGlobal.Ins.socketDidConnected = ^(NSString * _Nullable data) {
         self->_lbl_msg.text = data;
     };
-    XHNetGlobal.Ins.socketDidReadDta = ^(NSString * _Nullable data) {
-        self->_lbl_res.text = data;
+    XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable dic) {
+        if(dic){
+                if([dic objectForKey:@"status"] == 0){
+                NSString *info = [NSString stringWithFormat:@"药品名称：%@\n药品批号：%@\n库存：%d\n需要补药：%@\n单元机运行状态：%@",[dic objectForKey:@"ypmc"],[dic objectForKey:@"ph"],(int)[dic objectForKey:@"storage"],[dic objectForKey:@"need"],[dic objectForKey:@"zt"]];
+                self->_lbl_res.text = info;
+            }
+            else{
+                self->_lbl_res.text = [NSString stringWithFormat:@"请求失败：%@",[dic objectForKey:@"content"]];
+            }
+        }
     };
     [self OnloadResult];
-}
-- (void)viewDidAppear:(BOOL)animated {
-    if(!XHNetGlobal.Ins.isSocketConected)
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:5003 error:nil];
-    [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:200];
 }
 
 - (void)setupNavigationItem {
@@ -74,14 +86,26 @@
 
 - (void)OnloadResult {
     if(XHNetGlobal.Ins.isSocketConected) {
+        
         ParamBase *param = [ParamBase param];
         param.medicine_id = _qrcodeRes;
         NSString *paramstr = [param mj_JSONString];
-        [XHNetGlobal.Ins.clientSocket writeData:[paramstr dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+        [XHNetGlobal ClientSocketSend:paramstr];
+        _lbl_msg.text = [NSString stringWithFormat:@"参数已经发送：%@",paramstr];
     }
     else{
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:5003 error:nil];
+        [XHNetGlobal.Ins ClientSocketConnect];
+        _lbl_msg.text = @"服务器断开请重试";
     }
+}
+
+- (void)ReqAddMedicine{
+    ParamBase *param = [ParamBase param];
+    param.type = 2;
+    param.medicine_id = _qrcodeRes;
+    param.num = 10;
+    NSString *paramstr = [param mj_JSONString];
+    [XHNetGlobal ClientSocketSend:paramstr];
 }
 
 @end

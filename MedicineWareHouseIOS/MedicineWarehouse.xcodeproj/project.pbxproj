@@ -21,6 +21,7 @@
 		6985C778219FFDFB00A07A8A /* MBProgressHUD+SGQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C775219FFDFB00A07A8A /* MBProgressHUD+SGQRCode.m */; };
 		6985C779219FFDFB00A07A8A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6985C776219FFDFB00A07A8A /* MBProgressHUD.bundle */; };
 		6985C77D21A021DB00A07A8A /* ParamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C77C21A021DB00A07A8A /* ParamBase.m */; };
+		6985C78021A2E27600A07A8A /* MedicineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C77F21A2E27600A07A8A /* MedicineUnit.m */; };
 		69B2BE26219D4C5600A3BD9A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */; };
 		69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */; };
 		69D40F76219AEFD8008E9A55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F75219AEFD8008E9A55 /* AppDelegate.m */; };
@@ -90,6 +91,8 @@
 		6985C776219FFDFB00A07A8A /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		6985C77B21A021DB00A07A8A /* ParamBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamBase.h; sourceTree = "<group>"; };
 		6985C77C21A021DB00A07A8A /* ParamBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamBase.m; sourceTree = "<group>"; };
+		6985C77E21A2E27600A07A8A /* MedicineUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicineUnit.h; sourceTree = "<group>"; };
+		6985C77F21A2E27600A07A8A /* MedicineUnit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineUnit.m; sourceTree = "<group>"; };
 		69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		69B2BE24219D4C5600A3BD9A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		6985C751219ED81800A07A8A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6985C769219FFDBE00A07A8A /* ScanSuccessJumpVC.h */,
+				6985C768219FFDBE00A07A8A /* ScanSuccessJumpVC.m */,
 				6985C752219ED8B200A07A8A /* MainTabBarViewController.h */,
 				6985C753219ED8B200A07A8A /* MainTabBarViewController.m */,
 				69D40F74219AEFD8008E9A55 /* AppDelegate.h */,
@@ -184,8 +189,6 @@
 		6985C75B219FE6E800A07A8A /* SGQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				6985C769219FFDBE00A07A8A /* ScanSuccessJumpVC.h */,
-				6985C768219FFDBE00A07A8A /* ScanSuccessJumpVC.m */,
 				6985C76D219FFDBE00A07A8A /* WBQRCodeVC.h */,
 				6985C76C219FFDBE00A07A8A /* WBQRCodeVC.m */,
 				6985C76A219FFDBE00A07A8A /* WCQRCodeVC.h */,
@@ -219,6 +222,8 @@
 			children = (
 				6985C77B21A021DB00A07A8A /* ParamBase.h */,
 				6985C77C21A021DB00A07A8A /* ParamBase.m */,
+				6985C77E21A2E27600A07A8A /* MedicineUnit.h */,
+				6985C77F21A2E27600A07A8A /* MedicineUnit.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 		69D40FA6219C19F2008E9A55 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				69D40FB3219C3DAE008E9A55 /* MJExtension */,
 				6985C77A21A021C900A07A8A /* Model */,
 				6985C751219ED81800A07A8A /* Main */,
 				69D40FAE219C3B41008E9A55 /* Tools */,
@@ -331,7 +337,6 @@
 				6985C771219FFDFB00A07A8A /* MBProgressHUD */,
 				6985C75B219FE6E800A07A8A /* SGQRCode */,
 				69B2BE21219D4C3500A3BD9A /* GCDAsynSocket */,
-				69D40FB3219C3DAE008E9A55 /* MJExtension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				69D40FCE219C3DAE008E9A55 /* NSObject+MJProperty.m in Sources */,
 				6985C75A219EDC5C00A07A8A /* RightViewController.m in Sources */,
 				69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */,
+				6985C78021A2E27600A07A8A /* MedicineUnit.m in Sources */,
 				69D40FAD219C3ABC008E9A55 /* XHConstGlobal.m in Sources */,
 				69D40FCB219C3DAE008E9A55 /* MJProperty.m in Sources */,
 				6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */,

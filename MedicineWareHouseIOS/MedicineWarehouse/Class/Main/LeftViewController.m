@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"左视图";
+    self.title = @"补药";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self UILayoutSetting];
@@ -28,7 +28,7 @@
 }
 
 - (void)UILayoutSetting {
-    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     [qrcodeBtn setImage:[UIImage imageNamed:@"qrcode-scan"] forState:UIControlStateNormal];
     qrcodeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [qrcodeBtn addTarget:self action:@selector(OpenQRCodeScan) forControlEvents:UIControlEventTouchUpInside];
@@ -95,15 +95,5 @@
     [alertC addAction:alertA];
     [self presentViewController:alertC animated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

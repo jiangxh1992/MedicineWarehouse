@@ -29,42 +29,35 @@
     _lbl_msg.frame = CGRectMake(0, 200, self.view.frame.size.width, 30);
     _lbl_msg.textColor = [UIColor redColor];
     _lbl_msg.textAlignment = NSTextAlignmentCenter;
+    _lbl_msg.textColor = [UIColor redColor];
+    _lbl_msg.text = @"等待服务器链接...";
     [self.view addSubview:_lbl_msg];
     
-    // 扫描结果
     CGFloat label_Y = CGRectGetMaxY(_lbl_msg.frame);
     _lbl_res = [[UILabel alloc] init];
     _lbl_res.frame = CGRectMake(0, label_Y, self.view.frame.size.width, 30);
     _lbl_res.textAlignment = NSTextAlignmentCenter;
+    _lbl_res.textColor = [UIColor redColor];
+    _lbl_res.text = @"服务器返回数据：...";
     [self.view addSubview:_lbl_res];
 
     
     XHNetGlobal.Ins.socketDidConnected = ^(NSString * _Nullable data) {
         self->_lbl_msg.text = data;
     };
-    XHNetGlobal.Ins.socketDidReadDta = ^(NSString * _Nullable data) {
-        self->_lbl_res.text = data;
+    XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable data) {
+        self->_lbl_res.text = [data mj_JSONString];
     };
-    
-    [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:8080 error:nil];
-    [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:200];
+    [XHNetGlobal.Ins ClientSocketConnect];
 }
 
 - (void)Go:(id)sender {
-    /*
-    NSDictionary *dic = @{@"id":@"987654321"};
-    [XHNetGlobal.Ins POSTWithUrl:UrlMedicine param:dic success:^(id  _Nonnull json) {
-        
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
-     */
     if(XHNetGlobal.Ins.isSocketConected) {
         NSString *param = @"test param";
         [XHNetGlobal.Ins.clientSocket writeData:[param dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
     }
     else{
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:5003 error:nil];
+        [XHNetGlobal.Ins ClientSocketConnect];
     }
 }
 

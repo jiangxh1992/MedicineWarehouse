@@ -43,11 +43,17 @@
     if (self = [super init])
     {
         _session = [NSURLSession sharedSession];
+        [self setSocketDidConnected:^(NSString * _Nullable data) {
+            
+        }];
+        [self setSocketDidReadDta:^(NSDictionary * _Nullable data) {
+            
+        }];
     }
     return self;
 }
 
-- (GCDAsyncSocket *)clientSocket{
+- (GCDAsyncSocket *)clientSocket {
     if(_clientSocket == nil)
         _clientSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     return _clientSocket;
@@ -77,7 +83,7 @@
     // 修改请求方法为POST
     request.HTTPMethod = @"POST";
     // 参数
-    request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = [[self AES128Convert:param] dataUsingEncoding:NSUTF8StringEncoding];
     // 请求超时
     request.timeoutInterval = 30;
     //根据会话对象创建一个Task(发送请求）
@@ -121,25 +127,33 @@
     
     return [aes128 stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
 }
+
++ (void) ClientSocketSend :(NSString *)msg {
+    [XHNetGlobal.Ins.clientSocket writeData:[msg dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+}
+- (void)ClientSocketConnect {
+    if(!XHNetGlobal.Ins.isSocketConected){
+        [XHNetGlobal.Ins.clientSocket connectToHost:@"169.254.102.36" onPort:8080 error:nil];
+        [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
+    }
+}
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
     _isSocketConected = true;
     _socketDidConnected(@"服务器已连接");
     NSLog(@"链接服务器成功！服务器IP：%@端口：%d",host,port);
 }
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
-    NSString *strData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"服务器返回数据：%@",strData);
-    _socketDidReadDta(strData);
-    [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:200];
-}
-- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
-    NSLog(@"");
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+
+    NSLog(@"服务器返回数据：%@",[dic mj_JSONString]);
+    _socketDidReadDta(dic);
+    [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
 }
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
     _isSocketConected = false;
     _socketDidConnected(@"服务器已断开");
     NSLog(@"服务器断开：%@",err);
-    [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:5003 error:nil];
+    [XHNetGlobal.Ins ClientSocketConnect];
     //_clientSocket.delegate = nil;
     //_clientSocket = nil;
 }

@@ -11,14 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^SocketCallback)(NSString * _Nullable data);
+typedef void (^SocketCallbackMsg)(NSString * _Nullable data);
+typedef void (^SocketCallbackData)(NSDictionary * _Nullable data);
 
 @interface XHNetGlobal : NSObject{
 }
 
 @property (nonatomic, assign)BOOL isSocketConected;
-@property (nonatomic, copy) SocketCallback socketDidReadDta;
-@property (nonatomic, copy) SocketCallback socketDidConnected;
+@property (nonatomic, copy) SocketCallbackData socketDidReadDta;
+@property (nonatomic, copy) SocketCallbackMsg socketDidConnected;
 
 /**
  *  获取QueuesSingleton单例对象
@@ -29,6 +30,8 @@ typedef void (^SocketCallback)(NSString * _Nullable data);
  * socket
  */
 - (GCDAsyncSocket *)clientSocket;
+- (void) ClientSocketConnect;
++ (void) ClientSocketSend :(NSString *)msg;
 
 /**
  * POST WITH DIC
