@@ -28,13 +28,13 @@
     /*添加导航子视图*/
     LeftViewController *leftViewController = [[LeftViewController alloc] init];
     UINavigationController *leftNavController = [[UINavigationController alloc] initWithRootViewController:leftViewController];
-    leftNavController.tabBarItem.title = @"操作";
+    //leftNavController.tabBarItem.title = @"操作";
     leftNavController.tabBarItem.image = [UIImage imageNamed:@"home"];
     [self addChildViewController:leftNavController];
     
     RightViewController *rightViewController = [[RightViewController alloc] init];
     UINavigationController *rightNavController = [[UINavigationController alloc] initWithRootViewController:rightViewController];
-    rightNavController.tabBarItem.title = @"主页";
+    //rightNavController.tabBarItem.title = @"主页";
     rightNavController.tabBarItem.image = [UIImage imageNamed:@"home"];
     [self addChildViewController:rightNavController];
     

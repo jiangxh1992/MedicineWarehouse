@@ -133,7 +133,7 @@
 }
 - (void)ClientSocketConnect {
     if(!XHNetGlobal.Ins.isSocketConected){
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"169.254.102.36" onPort:8080 error:nil];
+        [XHNetGlobal.Ins.clientSocket connectToHost:@"169.254.11.246" onPort:8080 error:nil];
         [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
     }
 }

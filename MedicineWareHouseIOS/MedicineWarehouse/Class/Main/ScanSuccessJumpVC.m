@@ -11,6 +11,7 @@
 @interface ScanSuccessJumpVC ()
 @property (nonatomic, strong) UILabel *lbl_msg;
 @property (nonatomic, strong) UILabel *lbl_res;
+@property (nonatomic, strong) UITextField *inputView;
 @end
 
 @implementation ScanSuccessJumpVC
@@ -21,35 +22,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNavigationItem];
-    
-    _lbl_msg = [[UILabel alloc] init];
-    _lbl_msg.frame = CGRectMake(0, 100, self.view.frame.size.width, 30);
-    _lbl_msg.textColor = [UIColor redColor];
-    _lbl_msg.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_lbl_msg];
-    
-    // 扫描结果
-    CGFloat label_Y = CGRectGetMaxY(_lbl_msg.frame);
-    _lbl_res = [[UILabel alloc] init];
-    _lbl_res.frame = CGRectMake(0, label_Y, self.view.frame.size.width, 300);
-    _lbl_res.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_lbl_res];
-    
-    [self setupLabel];
-    
-    UIButton *addMedicineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addMedicineBtn setTitle:@"补药(10)" forState:UIControlStateNormal];
-    addMedicineBtn.titleLabel.textColor = [UIColor greenColor];
-    addMedicineBtn.backgroundColor = [UIColor orangeColor];
-    addMedicineBtn.frame = CGRectMake(0, CGRectGetMaxY(_lbl_res.frame), ScreenW, 30);
-    [addMedicineBtn addTarget:self action:@selector(ReqAddMedicine) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:addMedicineBtn];
-
+    [self setupUI];
     
     XHNetGlobal.Ins.socketDidConnected = ^(NSString * _Nullable data) {
         self->_lbl_msg.text = data;
     };
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable dic) {
+        [MBProgressHUD SG_showMBProgressHUDWithModifyStyleMessage:@"服务器返回成功" toView:self.view];
         if(dic){
                 if([dic objectForKey:@"status"] == 0){
                 NSString *info = [NSString stringWithFormat:@"药品名称：%@\n药品批号：%@\n库存：%d\n需要补药：%@\n单元机运行状态：%@",[dic objectForKey:@"ypmc"],[dic objectForKey:@"ph"],(int)[dic objectForKey:@"storage"],[dic objectForKey:@"need"],[dic objectForKey:@"zt"]];
@@ -61,6 +40,45 @@
         }
     };
     [self OnloadResult];
+}
+
+- (void)setupUI {
+    // tip
+    _lbl_msg = [[UILabel alloc] init];
+    _lbl_msg.frame = CGRectMake(0, 100, self.view.frame.size.width, 30);
+    _lbl_msg.textColor = [UIColor redColor];
+    _lbl_msg.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_lbl_msg];
+    // 提示文字
+    _lbl_msg.text = @"服务器连接...";
+    
+    // 扫描结果
+    CGFloat label_Y = CGRectGetMaxY(_lbl_msg.frame);
+    _lbl_res = [[UILabel alloc] init];
+    _lbl_res.frame = CGRectMake(5, label_Y, self.view.frame.size.width - 10, ScreenH / 2);
+    _lbl_res.textAlignment = NSTextAlignmentCenter;
+    _lbl_res.layer.cornerRadius = 3;
+    _lbl_res.layer.borderColor = [[UIColor grayColor] CGColor];
+    _lbl_res.layer.borderWidth = 1;
+    [self.view addSubview:_lbl_res];
+    _lbl_res.text = [NSString stringWithFormat:@"您扫描的条形码结果如下： %@",_qrcodeRes];
+
+    // 补药
+    _inputView = [[UITextField alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_lbl_res.frame) + 20, ScreenW - 50, 30)];
+    _inputView.placeholder = @"数量";
+    //_inputView.textColor = [UIColor greenColor];
+    _inputView.borderStyle = UITextBorderStyleRoundedRect;
+    _inputView.keyboardType = UIKeyboardTypeNumberPad;
+    [self.view addSubview:_inputView];
+    
+    UIButton *addMedicineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addMedicineBtn setTitle:@"补药" forState:UIControlStateNormal];
+    addMedicineBtn.titleLabel.textColor = [UIColor greenColor];
+    addMedicineBtn.backgroundColor = [UIColor orangeColor];
+    addMedicineBtn.frame = CGRectMake(ScreenW - 50, CGRectGetMaxY(_lbl_res.frame) + 20, 50, 30);
+    [addMedicineBtn addTarget:self action:@selector(ReqAddMedicine) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:addMedicineBtn];
+
 }
 
 - (void)setupNavigationItem {
@@ -75,13 +93,6 @@
 
 - (void)left_BarButtonItemAction {
     [self.navigationController popToRootViewControllerAnimated:YES];
-}
-// 添加Label，加载扫描过来的内容
-- (void)setupLabel {
-    // 提示文字
-    _lbl_msg.text = @"您扫描的条形码结果如下： ";
-    // 扫描结果
-    _lbl_res.text = _qrcodeRes;
 }
 
 - (void)OnloadResult {
@@ -100,12 +111,29 @@
 }
 
 - (void)ReqAddMedicine{
-    ParamBase *param = [ParamBase param];
-    param.type = 2;
-    param.medicine_id = _qrcodeRes;
-    param.num = 10;
-    NSString *paramstr = [param mj_JSONString];
-    [XHNetGlobal ClientSocketSend:paramstr];
+    if([self isNum:_inputView.text]){
+        ParamBase *param = [ParamBase param];
+        param.type = 2;
+        param.medicine_id = _qrcodeRes;
+        param.num = [_inputView.text integerValue];
+        NSString *paramstr = [param mj_JSONString];
+        [XHNetGlobal ClientSocketSend:paramstr];
+    }
+    else{
+        [MBProgressHUD SG_showMBProgressHUDWithModifyStyleMessage:@"输入数量非法" toView:self.view];
+    }
+}
+
+- (BOOL)isNum:(NSString *)checkedNumString {
+    checkedNumString = [checkedNumString stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    if(checkedNumString.length > 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_inputView resignFirstResponder];
 }
 
 @end

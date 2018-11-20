@@ -9,6 +9,7 @@
 #import "LeftViewController.h"
 #import "SGQRCode.h"
 #import "WCQRCodeVC.h"
+#import "ScanSuccessJumpVC.h"
 
 @interface LeftViewController (){
     SGQRCodeObtain *qrcodeObtain;
@@ -20,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"补药";
+    self.title = @"扫描二维码补药";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self UILayoutSetting];
@@ -28,11 +29,13 @@
 }
 
 - (void)UILayoutSetting {
-    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     [qrcodeBtn setImage:[UIImage imageNamed:@"qrcode-scan"] forState:UIControlStateNormal];
     qrcodeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [qrcodeBtn addTarget:self action:@selector(OpenQRCodeScan) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:qrcodeBtn];
+    qrcodeBtn.center = self.view.center;
+    [self.view addSubview:qrcodeBtn];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:qrcodeBtn];
 }
 
 - (void)DataInit {
@@ -42,6 +45,10 @@
 - (void)OpenQRCodeScan {
     WCQRCodeVC *WCVC = [[WCQRCodeVC alloc] init];
     [self QRCodeScanVC:WCVC];
+    //ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
+    //jumpVC.qrcodeRes = @"100";
+    //[self.navigationController pushViewController:jumpVC animated:YES];
+
 }
 
 - (void)QRCodeScanVC:(UIViewController *)scanVC {

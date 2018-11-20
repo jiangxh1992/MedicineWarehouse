@@ -9,7 +9,6 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ConnectException;
@@ -21,7 +20,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SocketService extends Service {
-
     /*socket*/
     private Socket socket;
     /*连接线程*/
@@ -36,18 +34,14 @@ public class SocketService extends Service {
 
     /*默认重连*/
     private boolean isReConnect = true;
-
     private Handler handler = new Handler(Looper.getMainLooper());
-
 
     @Override
     public IBinder onBind(Intent intent) {
         return sockerBinder;
     }
 
-
     public class SocketBinder extends Binder {
-
         /*返回SocketService 在需要的地方可以通过ServiceConnection获取到SocketService  */
         public SocketService getService() {
             return SocketService.this;
@@ -61,17 +55,13 @@ public class SocketService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
         /*拿到传递过来的ip和端口号*/
         ip = intent.getStringExtra(Constants.INTENT_IP);
         port = intent.getStringExtra(Constants.INTENT_PORT);
-
         /*初始化socket*/
         initSocket();
-
         return super.onStartCommand(intent, flags, startId);
     }
-
 
     /*初始化socket*/
     private void initSocket() {
@@ -79,18 +69,14 @@ public class SocketService extends Service {
             connectThread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-
                     socket = new Socket();
                     try {
                         /*超时时间为2秒*/
                         socket.connect(new InetSocketAddress(ip, Integer.valueOf(port)), 2000);
                         /*连接成功的话  发送心跳包*/
                         if (socket.isConnected()) {
-
-
-                            /*因为Toast是要运行在主线程的  这里是子线程  所以需要到主线程哪里去显示toast*/
+                            /*因为Toast是要运行在主线程的,这里是子线程,所以需要到主线程哪里去显示toast*/
                             toastMsg("socket已连接");
-
                             /*发送连接成功的消息*/
                             //EventMsg msg = new EventMsg();
                             //msg.setTag(Constants.CONNET_SUCCESS);
@@ -98,42 +84,28 @@ public class SocketService extends Service {
                            /*发送心跳数据*/
                             sendBeatData();
                         }
-
-
                     } catch (IOException e) {
                         e.printStackTrace();
                         if (e instanceof SocketTimeoutException) {
                             toastMsg("连接超时，正在重连");
-
                             releaseSocket();
-
                         } else if (e instanceof NoRouteToHostException) {
                             toastMsg("该地址不存在，请检查");
                             stopSelf();
-
                         } else if (e instanceof ConnectException) {
                             toastMsg("连接异常或被拒绝，请检查");
                             stopSelf();
-
                         }
-
-
                     }
-
                 }
             });
-
             /*启动连接线程*/
             connectThread.start();
-
         }
-
-
     }
 
     /*因为Toast是要运行在主线程的   所以需要到主线程哪里去显示toast*/
     private void toastMsg(final String msg) {
-
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -141,7 +113,6 @@ public class SocketService extends Service {
             }
         });
     }
-
 
     /*发送数据*/
     public void sendOrder(final String order) {
@@ -156,11 +127,9 @@ public class SocketService extends Service {
                             outputStream.write((order).getBytes("gbk"));
                             outputStream.flush();
                         }
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }).start();
 
@@ -174,14 +143,12 @@ public class SocketService extends Service {
         if (timer == null) {
             timer = new Timer();
         }
-
         if (task == null) {
             task = new TimerTask() {
                 @Override
                 public void run() {
                     try {
                         outputStream = socket.getOutputStream();
-
                         /*这里的编码方式根据你的需求去改*/
                         outputStream.write(("test").getBytes("gbk"));
                         outputStream.flush();
@@ -191,20 +158,15 @@ public class SocketService extends Service {
                         /*重连*/
                         releaseSocket();
                         e.printStackTrace();
-
-
                     }
                 }
             };
         }
-
         timer.schedule(task, 0, 2000);
     }
 
-
     /*释放资源*/
     private void releaseSocket() {
-
         if (task != null) {
             task.cancel();
             task = null;
@@ -214,7 +176,6 @@ public class SocketService extends Service {
             timer.cancel();
             timer = null;
         }
-
         if (outputStream != null) {
             try {
                 outputStream.close();
@@ -224,27 +185,21 @@ public class SocketService extends Service {
             }
             outputStream = null;
         }
-
         if (socket != null) {
             try {
                 socket.close();
-
             } catch (IOException e) {
             }
             socket = null;
         }
-
         if (connectThread != null) {
             connectThread = null;
         }
-
-          /*重新初始化socket*/
+        /*重新初始化socket*/
         if (isReConnect) {
             initSocket();
         }
-
     }
-
 
     @Override
     public void onDestroy() {
@@ -253,6 +208,5 @@ public class SocketService extends Service {
         isReConnect = false;
         releaseSocket();
     }
-
 
 }

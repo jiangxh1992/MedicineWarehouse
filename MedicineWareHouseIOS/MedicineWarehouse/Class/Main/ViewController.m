@@ -61,8 +61,5 @@
     }
 }
 
-- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    //[_input resignFirstResponder];
-}
 
 @end
