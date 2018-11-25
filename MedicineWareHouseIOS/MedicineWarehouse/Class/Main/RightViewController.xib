@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RightViewController">
+            <connections>
+                <outlet property="inputIP" destination="xnz-9Z-yK5" id="5gp-8b-HDe"/>
+                <outlet property="inputPort" destination="hDA-vA-mx1" id="czZ-1B-Usn"/>
+                <outlet property="lbl_msg" destination="4qy-ud-NvK" id="Dqp-km-m9f"/>
+                <outlet property="lbl_res" destination="Nke-OQ-kpj" id="Zp3-dk-KXb"/>
+                <outlet property="textView" destination="fHi-h7-JCv" id="C67-Py-TOy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsgline" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nke-OQ-kpj">
+                    <rect key="frame" x="10" y="40" width="355" height="200"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="V9d-tf-dNy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.246.149.17" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnz-9Z-yK5" userLabel="IP">
+                    <rect key="frame" x="10" y="290" width="265" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8080" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-vA-mx1" userLabel="Port">
+                    <rect key="frame" x="278" y="290" width="87" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器IP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-0F-2NU">
+                    <rect key="frame" x="10" y="259" width="67" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="端口号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXT-BV-UYq">
+                    <rect key="frame" x="278" y="259" width="52" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBs-HT-MUs">
+                    <rect key="frame" x="50" y="350" width="275" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.66078937326432063" blue="0.19091994761694575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="重连服务器">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="ConnetServer" destination="-1" eventType="touchUpInside" id="Dpz-J5-NSY"/>
+                        <action selector="DisConnectServer" destination="-1" eventType="touchUpInside" id="XS3-gW-s64"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器已连接" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-ud-NvK">
+                    <rect key="frame" x="141.5" y="327" width="92" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHi-h7-JCv">
+                    <rect key="frame" x="10" y="440" width="355" height="100"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="A3k-lp-Y0D"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKp-SH-5xS">
+                    <rect key="frame" x="50" y="570" width="275" height="30"/>
+                    <color key="backgroundColor" red="0.047431041069999999" green="0.61251214379999996" blue="0.20673229069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="发送">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="SendMessage" destination="-1" eventType="touchUpInside" id="1Zl-cV-reJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-Lm-QU5">
+                    <rect key="frame" x="50" y="390" width="275" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="断开服务器">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tBs-HT-MUs" firstAttribute="top" secondItem="xnz-9Z-yK5" secondAttribute="bottom" constant="30" id="0n1-nl-isj"/>
+                <constraint firstItem="bhx-Lm-QU5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="1tS-sO-t1P"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="xnz-9Z-yK5" secondAttribute="trailing" constant="100" id="2bp-G9-TNW"/>
+                <constraint firstItem="RKp-SH-5xS" firstAttribute="top" secondItem="fHi-h7-JCv" secondAttribute="bottom" constant="30" id="3Ev-Z7-FAp"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="tBs-HT-MUs" secondAttribute="trailing" constant="50" id="4XY-0F-dui"/>
+                <constraint firstItem="xnz-9Z-yK5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="7Gd-UK-6TC"/>
+                <constraint firstItem="xnz-9Z-yK5" firstAttribute="top" secondItem="Nke-OQ-kpj" secondAttribute="bottom" constant="50" id="8Dg-6j-uIL"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Nke-OQ-kpj" secondAttribute="trailing" constant="10" id="CfG-BY-KTU"/>
+                <constraint firstItem="fHi-h7-JCv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="FVR-66-aUY"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fHi-h7-JCv" secondAttribute="trailing" constant="10" id="HoR-y7-3rQ"/>
+                <constraint firstItem="xnz-9Z-yK5" firstAttribute="top" secondItem="NFR-0F-2NU" secondAttribute="bottom" constant="10" id="I0o-at-Yjs"/>
+                <constraint firstItem="4qy-ud-NvK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ouj-au-g3x"/>
+                <constraint firstItem="tBs-HT-MUs" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="Q9W-XY-r60"/>
+                <constraint firstItem="fHi-h7-JCv" firstAttribute="top" secondItem="bhx-Lm-QU5" secondAttribute="bottom" constant="20" id="RTN-H0-KQn"/>
+                <constraint firstItem="Nke-OQ-kpj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="SSn-Ud-CdY"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="bhx-Lm-QU5" secondAttribute="trailing" constant="50" id="VcR-Dj-K4m"/>
+                <constraint firstItem="tBs-HT-MUs" firstAttribute="top" secondItem="4qy-ud-NvK" secondAttribute="bottom" constant="5" id="XgE-jZ-RDt"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hDA-vA-mx1" secondAttribute="trailing" constant="10" id="YsC-aI-qEo"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="RKp-SH-5xS" secondAttribute="trailing" constant="50" id="aeq-Ic-BtW"/>
+                <constraint firstItem="Nke-OQ-kpj" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="b3e-cy-Mbb"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pXT-BV-UYq" secondAttribute="leading" constant="97" id="eB5-LV-sWf"/>
+                <constraint firstItem="hDA-vA-mx1" firstAttribute="top" secondItem="Nke-OQ-kpj" secondAttribute="bottom" constant="50" id="gOA-ck-pKt"/>
+                <constraint firstItem="hDA-vA-mx1" firstAttribute="top" secondItem="pXT-BV-UYq" secondAttribute="bottom" constant="10" id="h5K-By-5KP"/>
+                <constraint firstItem="RKp-SH-5xS" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="h94-xt-YGS"/>
+                <constraint firstItem="bhx-Lm-QU5" firstAttribute="top" secondItem="tBs-HT-MUs" secondAttribute="bottom" constant="10" id="uAy-O2-uCJ"/>
+                <constraint firstItem="NFR-0F-2NU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="w6r-lY-4uR"/>
+                <constraint firstItem="hDA-vA-mx1" firstAttribute="leading" secondItem="xnz-9Z-yK5" secondAttribute="trailing" constant="3" id="wHX-JB-6xI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

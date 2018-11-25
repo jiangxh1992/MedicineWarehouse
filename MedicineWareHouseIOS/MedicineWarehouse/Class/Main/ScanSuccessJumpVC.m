@@ -26,7 +26,6 @@
     
     [XHNetGlobal.Ins ClientSocketConnect];
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable dic) {
-        [MBProgressHUD SG_showMBProgressHUDWithModifyStyleMessage:@"服务器返回成功" toView:self.view];
         if(dic){
             int status = [[dic objectForKey:@"status"] intValue];
             if(status == 0) {

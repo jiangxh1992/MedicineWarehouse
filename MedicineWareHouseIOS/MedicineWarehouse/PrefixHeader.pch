@@ -12,11 +12,13 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "MJExtension.h"
-#import "XHNetGlobal.h"
-#import "XHConstGlobal.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+SGQRCode.h"
+
 #import "ParamBase.h"
+#import "XHNetGlobal.h"
+#import "XHConstGlobal.h"
+#import "XHGlobalAccount.h"
 
 // 屏幕高度
 #define ScreenH [UIScreen mainScreen].bounds.size.height

@@ -14,32 +14,48 @@
 @interface LeftViewController (){
     SGQRCodeObtain *qrcodeObtain;
 }
+@property (nonatomic, strong)UIButton *qrcodeBtn;
 
 @end
 
 @implementation LeftViewController
 
+- (void)viewDidAppear:(BOOL)animated{
+    if(XHGlobalAccount.Ins.isLogin){
+        self.title = @"扫描二维码补药";
+        
+        [self UILayoutSetting];
+        [self DataInit];
+    }
+    else
+    {
+        [self ClearView];
+        self.title = @"请先登录";
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"扫描二维码补药";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self UILayoutSetting];
-    [self DataInit];
 }
 
 - (void)UILayoutSetting {
-    UIButton *qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    [qrcodeBtn setImage:[UIImage imageNamed:@"qrcode-scan"] forState:UIControlStateNormal];
-    qrcodeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [qrcodeBtn addTarget:self action:@selector(OpenQRCodeScan) forControlEvents:UIControlEventTouchUpInside];
-    qrcodeBtn.center = self.view.center;
-    [self.view addSubview:qrcodeBtn];
-    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:qrcodeBtn];
+    _qrcodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [_qrcodeBtn setImage:[UIImage imageNamed:@"qrcode-scan"] forState:UIControlStateNormal];
+    _qrcodeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_qrcodeBtn addTarget:self action:@selector(OpenQRCodeScan) forControlEvents:UIControlEventTouchUpInside];
+    _qrcodeBtn.center = self.view.center;
+    [self.view addSubview:_qrcodeBtn];
 }
 
 - (void)DataInit {
     qrcodeObtain = [SGQRCodeObtain QRCodeObtain];
+}
+
+- (void)ClearView {
+    [_qrcodeBtn removeFromSuperview];
+    _qrcodeBtn = nil;
+    qrcodeObtain = nil;
 }
 
 - (void)OpenQRCodeScan {

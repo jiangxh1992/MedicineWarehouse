@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6985C754219ED8B200A07A8A /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C753219ED8B200A07A8A /* MainTabBarViewController.m */; };
 		6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C756219EDC4C00A07A8A /* LeftViewController.m */; };
-		6985C75A219EDC5C00A07A8A /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C759219EDC5C00A07A8A /* RightViewController.m */; };
 		6985C764219FE6E800A07A8A /* SGQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6985C75D219FE6E800A07A8A /* SGQRCode.bundle */; };
 		6985C765219FE6E800A07A8A /* SGQRCodeObtainConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C75E219FE6E800A07A8A /* SGQRCodeObtainConfigure.m */; };
 		6985C766219FE6E800A07A8A /* SGQRCodeObtain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C762219FE6E800A07A8A /* SGQRCodeObtain.m */; };
@@ -22,6 +21,14 @@
 		6985C779219FFDFB00A07A8A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6985C776219FFDFB00A07A8A /* MBProgressHUD.bundle */; };
 		6985C77D21A021DB00A07A8A /* ParamBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C77C21A021DB00A07A8A /* ParamBase.m */; };
 		6985C78021A2E27600A07A8A /* MedicineUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C77F21A2E27600A07A8A /* MedicineUnit.m */; };
+		698B1A9621AA90E300E81D44 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B1A9421AA90E300E81D44 /* LoginViewController.m */; };
+		698B1A9721AA90E300E81D44 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B1A9521AA90E300E81D44 /* LoginViewController.xib */; };
+		698B1A9A21AA942B00E81D44 /* XHGlobalAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B1A9921AA942B00E81D44 /* XHGlobalAccount.m */; };
+		698B1A9D21AA959000E81D44 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B1A9C21AA959000E81D44 /* Account.m */; };
+		698B1AA121AA9DFD00E81D44 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B1A9F21AA9DFD00E81D44 /* SignInViewController.m */; };
+		698B1AA221AA9DFE00E81D44 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B1AA021AA9DFD00E81D44 /* SignInViewController.xib */; };
+		698B1AA621AAA44300E81D44 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698B1AA421AAA44300E81D44 /* RightViewController.m */; };
+		698B1AA721AAA44300E81D44 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698B1AA521AAA44300E81D44 /* RightViewController.xib */; };
 		69B2BE26219D4C5600A3BD9A /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */; };
 		69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */; };
 		69D40F76219AEFD8008E9A55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D40F75219AEFD8008E9A55 /* AppDelegate.m */; };
@@ -68,8 +75,6 @@
 		6985C753219ED8B200A07A8A /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		6985C755219EDC4C00A07A8A /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		6985C756219EDC4C00A07A8A /* LeftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		6985C758219EDC5C00A07A8A /* RightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
-		6985C759219EDC5C00A07A8A /* RightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		6985C75C219FE6E800A07A8A /* SGQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCode.h; sourceTree = "<group>"; };
 		6985C75D219FE6E800A07A8A /* SGQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SGQRCode.bundle; sourceTree = "<group>"; };
 		6985C75E219FE6E800A07A8A /* SGQRCodeObtainConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeObtainConfigure.m; sourceTree = "<group>"; };
@@ -93,6 +98,19 @@
 		6985C77C21A021DB00A07A8A /* ParamBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamBase.m; sourceTree = "<group>"; };
 		6985C77E21A2E27600A07A8A /* MedicineUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicineUnit.h; sourceTree = "<group>"; };
 		6985C77F21A2E27600A07A8A /* MedicineUnit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineUnit.m; sourceTree = "<group>"; };
+		698B1A9321AA90E300E81D44 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		698B1A9421AA90E300E81D44 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		698B1A9521AA90E300E81D44 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		698B1A9821AA942B00E81D44 /* XHGlobalAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHGlobalAccount.h; sourceTree = "<group>"; };
+		698B1A9921AA942B00E81D44 /* XHGlobalAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHGlobalAccount.m; sourceTree = "<group>"; };
+		698B1A9B21AA959000E81D44 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		698B1A9C21AA959000E81D44 /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		698B1A9E21AA9DFD00E81D44 /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		698B1A9F21AA9DFD00E81D44 /* SignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		698B1AA021AA9DFD00E81D44 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		698B1AA321AAA44300E81D44 /* RightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		698B1AA421AAA44300E81D44 /* RightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		698B1AA521AAA44300E81D44 /* RightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
 		69B2BE22219D4C5600A3BD9A /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		69B2BE23219D4C5600A3BD9A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		69B2BE24219D4C5600A3BD9A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -180,8 +198,15 @@
 				69D40F78219AEFD8008E9A55 /* ViewController.m */,
 				6985C755219EDC4C00A07A8A /* LeftViewController.h */,
 				6985C756219EDC4C00A07A8A /* LeftViewController.m */,
-				6985C758219EDC5C00A07A8A /* RightViewController.h */,
-				6985C759219EDC5C00A07A8A /* RightViewController.m */,
+				698B1A9321AA90E300E81D44 /* LoginViewController.h */,
+				698B1A9421AA90E300E81D44 /* LoginViewController.m */,
+				698B1A9521AA90E300E81D44 /* LoginViewController.xib */,
+				698B1A9E21AA9DFD00E81D44 /* SignInViewController.h */,
+				698B1A9F21AA9DFD00E81D44 /* SignInViewController.m */,
+				698B1AA021AA9DFD00E81D44 /* SignInViewController.xib */,
+				698B1AA321AAA44300E81D44 /* RightViewController.h */,
+				698B1AA421AAA44300E81D44 /* RightViewController.m */,
+				698B1AA521AAA44300E81D44 /* RightViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -224,6 +249,8 @@
 				6985C77C21A021DB00A07A8A /* ParamBase.m */,
 				6985C77E21A2E27600A07A8A /* MedicineUnit.h */,
 				6985C77F21A2E27600A07A8A /* MedicineUnit.m */,
+				698B1A9B21AA959000E81D44 /* Account.h */,
+				698B1A9C21AA959000E81D44 /* Account.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +354,8 @@
 				69D40FAC219C3ABC008E9A55 /* XHConstGlobal.m */,
 				69D40FAF219C3B79008E9A55 /* XHNetGlobal.h */,
 				69D40FB0219C3B79008E9A55 /* XHNetGlobal.m */,
+				698B1A9821AA942B00E81D44 /* XHGlobalAccount.h */,
+				698B1A9921AA942B00E81D44 /* XHGlobalAccount.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -474,7 +503,10 @@
 			files = (
 				69D40F81219AEFDD008E9A55 /* LaunchScreen.storyboard in Resources */,
 				69D40F7E219AEFDD008E9A55 /* Assets.xcassets in Resources */,
+				698B1A9721AA90E300E81D44 /* LoginViewController.xib in Resources */,
 				6985C779219FFDFB00A07A8A /* MBProgressHUD.bundle in Resources */,
+				698B1AA221AA9DFE00E81D44 /* SignInViewController.xib in Resources */,
+				698B1AA721AAA44300E81D44 /* RightViewController.xib in Resources */,
 				69D40F7C219AEFD8008E9A55 /* Main.storyboard in Resources */,
 				6985C764219FE6E800A07A8A /* SGQRCode.bundle in Resources */,
 			);
@@ -506,11 +538,13 @@
 				69D40F84219AEFDD008E9A55 /* main.m in Sources */,
 				69D40FD2219C3DAE008E9A55 /* MJFoundation.m in Sources */,
 				69D40FCE219C3DAE008E9A55 /* NSObject+MJProperty.m in Sources */,
-				6985C75A219EDC5C00A07A8A /* RightViewController.m in Sources */,
 				69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */,
 				6985C78021A2E27600A07A8A /* MedicineUnit.m in Sources */,
 				69D40FAD219C3ABC008E9A55 /* XHConstGlobal.m in Sources */,
+				698B1A9D21AA959000E81D44 /* Account.m in Sources */,
+				698B1AA621AAA44300E81D44 /* RightViewController.m in Sources */,
 				69D40FCB219C3DAE008E9A55 /* MJProperty.m in Sources */,
+				698B1A9A21AA942B00E81D44 /* XHGlobalAccount.m in Sources */,
 				6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */,
 				6985C767219FE6E800A07A8A /* SGQRCodeScanView.m in Sources */,
 				6985C765219FE6E800A07A8A /* SGQRCodeObtainConfigure.m in Sources */,
@@ -519,6 +553,7 @@
 				69D40FD0219C3DAE008E9A55 /* NSString+MJExtension.m in Sources */,
 				6985C778219FFDFB00A07A8A /* MBProgressHUD+SGQRCode.m in Sources */,
 				69D40FCC219C3DAE008E9A55 /* NSObject+MJCoding.m in Sources */,
+				698B1AA121AA9DFD00E81D44 /* SignInViewController.m in Sources */,
 				69D40FCD219C3DAE008E9A55 /* MJExtensionConst.m in Sources */,
 				69D40FC9219C3DAE008E9A55 /* MJPropertyType.m in Sources */,
 				6985C76E219FFDBF00A07A8A /* ScanSuccessJumpVC.m in Sources */,
@@ -531,6 +566,7 @@
 				69D40FB1219C3B79008E9A55 /* XHNetGlobal.m in Sources */,
 				69D40F76219AEFD8008E9A55 /* AppDelegate.m in Sources */,
 				6985C770219FFDBF00A07A8A /* WBQRCodeVC.m in Sources */,
+				698B1A9621AA90E300E81D44 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

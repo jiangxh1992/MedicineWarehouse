@@ -129,12 +129,18 @@
 }
 
 + (void) ClientSocketSend :(NSString *)msg {
-    [XHNetGlobal.Ins.clientSocket writeData:[msg dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+    if(XHNetGlobal.Ins.isSocketConected){
+        [XHNetGlobal.Ins.clientSocket writeData:[msg dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+    }
+    else
+    {
+        [MBProgressHUD SG_showMBProgressHUDWithOnlyMessage:@"请先连接服务器" delayTime:2.0];
+    }
 }
 
 - (void)ClientSocketConnect {
     if(!XHNetGlobal.Ins.isSocketConected){
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"169.254.11.246" onPort:8080 error:nil];
+        [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:8080 error:nil];
         [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
     }
 }
