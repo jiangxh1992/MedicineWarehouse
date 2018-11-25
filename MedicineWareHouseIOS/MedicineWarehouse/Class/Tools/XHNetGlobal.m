@@ -131,6 +131,7 @@
 + (void) ClientSocketSend :(NSString *)msg {
     [XHNetGlobal.Ins.clientSocket writeData:[msg dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
 }
+
 - (void)ClientSocketConnect {
     if(!XHNetGlobal.Ins.isSocketConected){
         [XHNetGlobal.Ins.clientSocket connectToHost:@"169.254.11.246" onPort:8080 error:nil];
@@ -153,7 +154,7 @@
     _isSocketConected = false;
     _socketDidConnected(@"服务器已断开");
     NSLog(@"服务器断开：%@",err);
-    [XHNetGlobal.Ins ClientSocketConnect];
+    //[XHNetGlobal.Ins ClientSocketConnect];
     //_clientSocket.delegate = nil;
     //_clientSocket = nil;
 }

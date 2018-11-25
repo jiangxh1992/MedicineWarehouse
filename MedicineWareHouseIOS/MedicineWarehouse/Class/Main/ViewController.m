@@ -48,7 +48,7 @@
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable data) {
         self->_lbl_res.text = [data mj_JSONString];
     };
-    [XHNetGlobal.Ins ClientSocketConnect];
+    //[XHNetGlobal.Ins ClientSocketConnect];
 }
 
 - (void)Go:(id)sender {
@@ -57,7 +57,7 @@
         [XHNetGlobal.Ins.clientSocket writeData:[param dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
     }
     else{
-        [XHNetGlobal.Ins ClientSocketConnect];
+        //[XHNetGlobal.Ins ClientSocketConnect];
     }
 }
 

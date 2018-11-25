@@ -24,17 +24,16 @@
     [self setupNavigationItem];
     [self setupUI];
     
-    XHNetGlobal.Ins.socketDidConnected = ^(NSString * _Nullable data) {
-        self->_lbl_msg.text = data;
-    };
+    [XHNetGlobal.Ins ClientSocketConnect];
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable dic) {
         [MBProgressHUD SG_showMBProgressHUDWithModifyStyleMessage:@"服务器返回成功" toView:self.view];
         if(dic){
-                if([dic objectForKey:@"status"] == 0){
+            int status = [[dic objectForKey:@"status"] intValue];
+            if(status == 0) {
                 NSString *info = [NSString stringWithFormat:@"药品名称：%@\n药品批号：%@\n库存：%d\n需要补药：%@\n单元机运行状态：%@",[dic objectForKey:@"ypmc"],[dic objectForKey:@"ph"],(int)[dic objectForKey:@"storage"],[dic objectForKey:@"need"],[dic objectForKey:@"zt"]];
                 self->_lbl_res.text = info;
             }
-            else{
+            else {
                 self->_lbl_res.text = [NSString stringWithFormat:@"请求失败：%@",[dic objectForKey:@"content"]];
             }
         }
@@ -97,7 +96,6 @@
 
 - (void)OnloadResult {
     if(XHNetGlobal.Ins.isSocketConected) {
-        
         ParamBase *param = [ParamBase param];
         param.medicine_id = _qrcodeRes;
         NSString *paramstr = [param mj_JSONString];
