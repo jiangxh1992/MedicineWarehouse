@@ -10,7 +10,6 @@
 #import "SignInViewController.h"
 
 @interface LoginViewController ()
-
 @end
 
 @implementation LoginViewController
@@ -21,21 +20,40 @@
     _tip.text = @"";
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable data) {
         self->_tip.text = [data mj_JSONString];
+        if(data){
+            int type = [[data objectForKey:@"type"] intValue];
+            if(type == XHSocketRequestTypeLogin){
+                int status = [[data objectForKey:@"status"] intValue];
+                if(status == 0) {
+                    self->_tip.text = @"登录成功";
+                    XHGlobalAccount.Ins.isLogin = YES;
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+                else{
+                    self->_tip.text = [data objectForKey:@"content"];
+                }
+            }
+                
+        }
     };
     [XHNetGlobal.Ins ClientSocketConnect];
 }
 
 - (IBAction)Login {
-    NSDictionary *param = @{@"username":_username.text,
+    NSDictionary *param = @{@"type":@0,
+                            @"name":_username.text,
                             @"password":_password.text
                             };
     [XHNetGlobal ClientSocketSend:[param mj_JSONString]];
-    XHGlobalAccount.Ins.isLogin = YES;
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)SignIn {
     [self.navigationController pushViewController:[[SignInViewController alloc] init] animated:YES];
+}
+
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_username resignFirstResponder];
+    [_password resignFirstResponder];
 }
 
 /*

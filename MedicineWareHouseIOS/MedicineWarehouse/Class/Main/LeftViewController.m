@@ -60,11 +60,8 @@
 
 - (void)OpenQRCodeScan {
     WCQRCodeVC *WCVC = [[WCQRCodeVC alloc] init];
+    WCVC.type = QRCodeScanTypeMedicineUnit;
     [self QRCodeScanVC:WCVC];
-    //ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-    //jumpVC.qrcodeRes = @"100";
-    //[self.navigationController pushViewController:jumpVC animated:YES];
-
 }
 
 - (void)QRCodeScanVC:(UIViewController *)scanVC {

@@ -63,7 +63,8 @@
 }
 
 - (IBAction)SendMessage {
-    NSDictionary *dic = @{@"status":@0,
+    NSDictionary *dic = @{@"type":@0,
+                          @"status":@0,
                           @"content":@"",
                           @"id":@"12345",
                           @"bh":@"007",

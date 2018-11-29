@@ -11,4 +11,6 @@
 @interface ScanSuccessJumpVC : UIViewController
 /** 接收扫描的二维码信息 */
 @property (nonatomic, copy) NSString *qrcodeRes;
+/** 扫描类型 **/
+@property (nonatomic, assign) QRCodeScanType type;
 @end

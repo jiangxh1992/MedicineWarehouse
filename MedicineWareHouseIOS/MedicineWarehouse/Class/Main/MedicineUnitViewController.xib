@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MedicineUnitViewController">
+            <connections>
+                <outlet property="inputView" destination="hc6-Ck-XEG" id="71D-pL-ibw"/>
+                <outlet property="lblItem_1" destination="eC2-sf-Ffa" id="KoN-Fx-WXP"/>
+                <outlet property="lblItem_2" destination="YhJ-qo-mbz" id="rqc-Oq-BC6"/>
+                <outlet property="lblItem_3" destination="4Iz-IC-ERE" id="1Uv-r6-MEU"/>
+                <outlet property="lblItem_4" destination="E0u-Hc-YZ1" id="wPO-Ft-r0S"/>
+                <outlet property="lbl_msg" destination="9TB-zT-kQY" id="8Eu-aM-RPo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品名称：黄氏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC2-sf-Ffa">
+                    <rect key="frame" x="20" y="120" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余量：500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhJ-qo-mbz">
+                    <rect key="frame" x="20" y="171" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总量：10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Iz-IC-ERE">
+                    <rect key="frame" x="20" y="222" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要补药" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0u-Hc-YZ1">
+                    <rect key="frame" x="20" y="273" width="335" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-Ck-XEG">
+                    <rect key="frame" x="20" y="437" width="255" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尚未匹配" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TB-zT-kQY">
+                    <rect key="frame" x="20" y="409" width="335" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcW-ya-b2I">
+                    <rect key="frame" x="285" y="437" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.13167259670000001" green="0.48916325649999998" blue="0.73994090030000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="补药">
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ReqAddMedicine" destination="-1" eventType="touchUpInside" id="lQC-qc-dhr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8s-D7-oi3">
+                    <rect key="frame" x="137.5" y="517" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Saw-0d-Acc"/>
+                        <constraint firstAttribute="width" constant="100" id="w0I-Ns-sfS"/>
+                    </constraints>
+                    <state key="normal" title="二维码" image="qrcode-scan"/>
+                    <connections>
+                        <action selector="OpenQRCodeScan" destination="-1" eventType="touchUpInside" id="ZTJ-YS-Oif"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="P8s-D7-oi3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1d6-lk-4Wt"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BcW-ya-b2I" secondAttribute="trailing" constant="20" id="AV8-9N-DU5"/>
+                <constraint firstItem="eC2-sf-Ffa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FFw-NN-BS0"/>
+                <constraint firstItem="eC2-sf-Ffa" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="LOR-3u-dwz"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hc6-Ck-XEG" secondAttribute="trailing" constant="100" id="Lbt-Ji-eaP"/>
+                <constraint firstItem="YhJ-qo-mbz" firstAttribute="top" secondItem="eC2-sf-Ffa" secondAttribute="bottom" constant="30" id="Ljq-He-K5H"/>
+                <constraint firstItem="E0u-Hc-YZ1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Mda-K7-2bk"/>
+                <constraint firstItem="4Iz-IC-ERE" firstAttribute="top" secondItem="YhJ-qo-mbz" secondAttribute="bottom" constant="30" id="R1J-Dh-Adi"/>
+                <constraint firstItem="YhJ-qo-mbz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="V7F-Yt-9wH"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="BcW-ya-b2I" secondAttribute="bottom" constant="200" id="YqQ-se-i50"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4Iz-IC-ERE" secondAttribute="trailing" constant="20" id="bfb-8U-L3x"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="P8s-D7-oi3" secondAttribute="bottom" constant="50" id="bxL-hR-PXt"/>
+                <constraint firstItem="4Iz-IC-ERE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="cNi-uq-xUh"/>
+                <constraint firstItem="hc6-Ck-XEG" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="ePd-rK-wXv"/>
+                <constraint firstItem="9TB-zT-kQY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="elT-EU-4GN"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="E0u-Hc-YZ1" secondAttribute="trailing" constant="20" id="fUC-wf-NTS"/>
+                <constraint firstItem="E0u-Hc-YZ1" firstAttribute="top" secondItem="4Iz-IC-ERE" secondAttribute="bottom" constant="30" id="hEh-0T-3le"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="YhJ-qo-mbz" secondAttribute="trailing" constant="20" id="jy0-DY-gi0"/>
+                <constraint firstItem="eC2-sf-Ffa" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="kRI-X9-dE7"/>
+                <constraint firstItem="YhJ-qo-mbz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="n9X-dq-1D8"/>
+                <constraint firstItem="hc6-Ck-XEG" firstAttribute="top" secondItem="9TB-zT-kQY" secondAttribute="bottom" constant="10" id="oKK-eM-AU1"/>
+                <constraint firstItem="E0u-Hc-YZ1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="p4t-om-4iW"/>
+                <constraint firstItem="4Iz-IC-ERE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uIJ-UQ-m8U"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="9TB-zT-kQY" secondAttribute="trailing" constant="20" id="vhf-HN-54y"/>
+                <constraint firstItem="BcW-ya-b2I" firstAttribute="leading" secondItem="hc6-Ck-XEG" secondAttribute="trailing" constant="10" id="vmP-NS-JqO"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="eC2-sf-Ffa" secondAttribute="trailing" constant="20" id="wyk-Lj-W1I"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="hc6-Ck-XEG" secondAttribute="bottom" constant="200" id="yqz-k6-pou"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="qrcode-scan" width="200" height="200"/>
+    </resources>
+</document>

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WCQRCodeVC : UIViewController
-
+/** 扫描类型 **/
+@property (nonatomic, assign) QRCodeScanType type;
 @end

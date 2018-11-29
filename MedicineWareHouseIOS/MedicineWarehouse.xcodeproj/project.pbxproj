@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690B845721AF90A2005ABFC9 /* MedicineUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B845521AF90A2005ABFC9 /* MedicineUnitViewController.m */; };
+		690B845821AF90A2005ABFC9 /* MedicineUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */; };
+		690B845B21B01464005ABFC9 /* ScanSuccessJumpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B845A21B01464005ABFC9 /* ScanSuccessJumpVC.m */; };
 		6985C754219ED8B200A07A8A /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C753219ED8B200A07A8A /* MainTabBarViewController.m */; };
 		6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C756219EDC4C00A07A8A /* LeftViewController.m */; };
 		6985C764219FE6E800A07A8A /* SGQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6985C75D219FE6E800A07A8A /* SGQRCode.bundle */; };
 		6985C765219FE6E800A07A8A /* SGQRCodeObtainConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C75E219FE6E800A07A8A /* SGQRCodeObtainConfigure.m */; };
 		6985C766219FE6E800A07A8A /* SGQRCodeObtain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C762219FE6E800A07A8A /* SGQRCodeObtain.m */; };
 		6985C767219FE6E800A07A8A /* SGQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C763219FE6E800A07A8A /* SGQRCodeScanView.m */; };
-		6985C76E219FFDBF00A07A8A /* ScanSuccessJumpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C768219FFDBE00A07A8A /* ScanSuccessJumpVC.m */; };
 		6985C76F219FFDBF00A07A8A /* WCQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C76B219FFDBE00A07A8A /* WCQRCodeVC.m */; };
 		6985C770219FFDBF00A07A8A /* WBQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C76C219FFDBE00A07A8A /* WBQRCodeVC.m */; };
 		6985C777219FFDFB00A07A8A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C772219FFDFB00A07A8A /* MBProgressHUD.m */; };
@@ -71,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		690B845421AF90A2005ABFC9 /* MedicineUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicineUnitViewController.h; sourceTree = "<group>"; };
+		690B845521AF90A2005ABFC9 /* MedicineUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineUnitViewController.m; sourceTree = "<group>"; };
+		690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineUnitViewController.xib; sourceTree = "<group>"; };
+		690B845921B01464005ABFC9 /* ScanSuccessJumpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSuccessJumpVC.h; sourceTree = "<group>"; };
+		690B845A21B01464005ABFC9 /* ScanSuccessJumpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSuccessJumpVC.m; sourceTree = "<group>"; };
 		6985C752219ED8B200A07A8A /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		6985C753219ED8B200A07A8A /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		6985C755219EDC4C00A07A8A /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -83,8 +90,6 @@
 		6985C761219FE6E800A07A8A /* SGQRCodeObtainConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeObtainConfigure.h; sourceTree = "<group>"; };
 		6985C762219FE6E800A07A8A /* SGQRCodeObtain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeObtain.m; sourceTree = "<group>"; };
 		6985C763219FE6E800A07A8A /* SGQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanView.m; sourceTree = "<group>"; };
-		6985C768219FFDBE00A07A8A /* ScanSuccessJumpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSuccessJumpVC.m; sourceTree = "<group>"; };
-		6985C769219FFDBE00A07A8A /* ScanSuccessJumpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSuccessJumpVC.h; sourceTree = "<group>"; };
 		6985C76A219FFDBE00A07A8A /* WCQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCQRCodeVC.h; sourceTree = "<group>"; };
 		6985C76B219FFDBE00A07A8A /* WCQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCQRCodeVC.m; sourceTree = "<group>"; };
 		6985C76C219FFDBE00A07A8A /* WBQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBQRCodeVC.m; sourceTree = "<group>"; };
@@ -188,8 +193,6 @@
 		6985C751219ED81800A07A8A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6985C769219FFDBE00A07A8A /* ScanSuccessJumpVC.h */,
-				6985C768219FFDBE00A07A8A /* ScanSuccessJumpVC.m */,
 				6985C752219ED8B200A07A8A /* MainTabBarViewController.h */,
 				6985C753219ED8B200A07A8A /* MainTabBarViewController.m */,
 				69D40F74219AEFD8008E9A55 /* AppDelegate.h */,
@@ -207,6 +210,9 @@
 				698B1AA321AAA44300E81D44 /* RightViewController.h */,
 				698B1AA421AAA44300E81D44 /* RightViewController.m */,
 				698B1AA521AAA44300E81D44 /* RightViewController.xib */,
+				690B845421AF90A2005ABFC9 /* MedicineUnitViewController.h */,
+				690B845521AF90A2005ABFC9 /* MedicineUnitViewController.m */,
+				690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 		6985C75B219FE6E800A07A8A /* SGQRCode */ = {
 			isa = PBXGroup;
 			children = (
+				690B845921B01464005ABFC9 /* ScanSuccessJumpVC.h */,
+				690B845A21B01464005ABFC9 /* ScanSuccessJumpVC.m */,
 				6985C76D219FFDBE00A07A8A /* WBQRCodeVC.h */,
 				6985C76C219FFDBE00A07A8A /* WBQRCodeVC.m */,
 				6985C76A219FFDBE00A07A8A /* WCQRCodeVC.h */,
@@ -504,6 +512,7 @@
 				69D40F81219AEFDD008E9A55 /* LaunchScreen.storyboard in Resources */,
 				69D40F7E219AEFDD008E9A55 /* Assets.xcassets in Resources */,
 				698B1A9721AA90E300E81D44 /* LoginViewController.xib in Resources */,
+				690B845821AF90A2005ABFC9 /* MedicineUnitViewController.xib in Resources */,
 				6985C779219FFDFB00A07A8A /* MBProgressHUD.bundle in Resources */,
 				698B1AA221AA9DFE00E81D44 /* SignInViewController.xib in Resources */,
 				698B1AA721AAA44300E81D44 /* RightViewController.xib in Resources */,
@@ -538,6 +547,7 @@
 				69D40F84219AEFDD008E9A55 /* main.m in Sources */,
 				69D40FD2219C3DAE008E9A55 /* MJFoundation.m in Sources */,
 				69D40FCE219C3DAE008E9A55 /* NSObject+MJProperty.m in Sources */,
+				690B845721AF90A2005ABFC9 /* MedicineUnitViewController.m in Sources */,
 				69B2BE27219D4C5600A3BD9A /* GCDAsyncSocket.m in Sources */,
 				6985C78021A2E27600A07A8A /* MedicineUnit.m in Sources */,
 				69D40FAD219C3ABC008E9A55 /* XHConstGlobal.m in Sources */,
@@ -548,6 +558,7 @@
 				6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */,
 				6985C767219FE6E800A07A8A /* SGQRCodeScanView.m in Sources */,
 				6985C765219FE6E800A07A8A /* SGQRCodeObtainConfigure.m in Sources */,
+				690B845B21B01464005ABFC9 /* ScanSuccessJumpVC.m in Sources */,
 				69D40FCA219C3DAE008E9A55 /* NSObject+MJKeyValue.m in Sources */,
 				6985C777219FFDFB00A07A8A /* MBProgressHUD.m in Sources */,
 				69D40FD0219C3DAE008E9A55 /* NSString+MJExtension.m in Sources */,
@@ -556,7 +567,6 @@
 				698B1AA121AA9DFD00E81D44 /* SignInViewController.m in Sources */,
 				69D40FCD219C3DAE008E9A55 /* MJExtensionConst.m in Sources */,
 				69D40FC9219C3DAE008E9A55 /* MJPropertyType.m in Sources */,
-				6985C76E219FFDBF00A07A8A /* ScanSuccessJumpVC.m in Sources */,
 				69B2BE26219D4C5600A3BD9A /* GCDAsyncUdpSocket.m in Sources */,
 				69D40FCF219C3DAE008E9A55 /* NSObject+MJClass.m in Sources */,
 				6985C77D21A021DB00A07A8A /* ParamBase.m in Sources */,

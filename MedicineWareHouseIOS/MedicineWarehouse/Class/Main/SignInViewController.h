@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SignInViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField *username;
 @property (nonatomic, weak) IBOutlet UITextField *password;
+@property (nonatomic, weak) IBOutlet UITextField *passwordconfirm;
 @property (nonatomic, weak) IBOutlet UILabel *tip;
 @end
 

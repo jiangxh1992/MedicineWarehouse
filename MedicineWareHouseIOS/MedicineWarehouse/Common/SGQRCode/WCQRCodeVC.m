@@ -8,8 +8,7 @@
 
 #import "WCQRCodeVC.h"
 #import "SGQRCode.h"
-#import "ScanSuccessJumpVC.h"
-
+#import "MedicineUnitViewController.h"
 @interface WCQRCodeVC () {
     SGQRCodeObtain *obtain;
 }
@@ -72,8 +71,9 @@
             [obtain stopRunning];
             [obtain playSoundName:@"SGQRCode.bundle/sound.caf"];
             
-            ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
+            MedicineUnitViewController *jumpVC = [[MedicineUnitViewController alloc] init];
             jumpVC.qrcodeRes = result;
+            jumpVC.type = weakSelf.type;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [MBProgressHUD SG_hideHUDForView:weakSelf.view];
                 [weakSelf.navigationController pushViewController:jumpVC animated:YES];
@@ -115,8 +115,9 @@
                 [MBProgressHUD SG_showMBProgressHUDWithOnlyMessage:@"未发现二维码/条形码" delayTime:1.0];
             });
         } else {
-            ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
+            MedicineUnitViewController *jumpVC = [[MedicineUnitViewController alloc] init];
             jumpVC.qrcodeRes = result;
+            jumpVC.type = weakSelf.type;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [MBProgressHUD SG_hideHUDForView:weakSelf.view];
                 [weakSelf.navigationController pushViewController:jumpVC animated:YES];
@@ -191,7 +192,7 @@
 
 - (void)removeFlashlightBtn {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [obtain closeFlashlight];
+        [self->obtain closeFlashlight];
         self.isSelectedFlashlightBtn = NO;
         self.flashlightBtn.selected = NO;
         [self.flashlightBtn removeFromSuperview];
