@@ -26,7 +26,6 @@
                 int status = [[data objectForKey:@"status"] intValue];
                 if(status == 0) {
                     self->_tip.text = @"注册成功";
-                    XHGlobalAccount.Ins.isLogin = YES;
                     [self.navigationController popViewControllerAnimated:YES];
                 }
                 else{
@@ -39,7 +38,21 @@
     [XHNetGlobal.Ins ClientSocketConnect];}
 
 - (IBAction)SignIn {
-    [self.navigationController popViewControllerAnimated:YES];
+    if(![_password.text isEqualToString:_passwordconfirm.text]){
+        _tip.text = @"两次密码输入不一致";
+        return;
+    }
+    
+    if([_password.text  isEqualToString: @""] || [_passwordconfirm.text  isEqualToString: @""]){
+        _tip.text = @"密码输入不能为空";
+        return;
+    }
+    
+    NSDictionary *param = @{@"type":@100,
+                            @"name":_username.text,
+                            @"password":_password.text
+                            };
+    [XHNetGlobal ClientSocketSend:[param mj_JSONString]];
 }
 
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

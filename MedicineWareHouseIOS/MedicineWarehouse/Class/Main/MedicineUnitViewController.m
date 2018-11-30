@@ -32,6 +32,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupNavigationItem];
+    _isMatched = false;
+    _curMedicineUnit = nil;
     
     [XHNetGlobal.Ins ClientSocketConnect];
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable dic) {
@@ -75,7 +77,12 @@
 
 // 请求补药
 - (IBAction)ReqAddMedicine{
-    if([self isNum:_inputView.text]){
+    if (!_isMatched) {
+        _lbl_msg.text = @"无法补药，请先扫描药品匹配单元机！";
+        return;
+    }
+    
+    if([self isNum:_inputView.text] && [_inputView.text integerValue] > 0){
         ParamBase *param = [ParamBase param];
         param.type = (int)XHSocketRequestTypeMedicinePlus;
         param.jqid = _qrcodeRes;
@@ -96,37 +103,16 @@
     if(status == 0) {
         if(_curMedicineUnit == nil) _curMedicineUnit = [[MedicineUnit alloc] init];
         _curMedicineUnit.jqid = [dic objectForKey:@"jqid"];
-        /*
-         “type”:1,
-         “status”:”0”,
-         “content”:””,
-         “jqid”:”12345”,
-         “jqbh”:”007”,
-         “ypmc”:”黄芪”,
-         “ypid”:”3575982”,
-         “ypph”:”01-031-02”,
-         “storage”:5000,
-         “stor3”:20000,
-         “need”:1,
-         “zt”:”正常”
-         */
-        /*
-         {
-         "type":1
-         “status”:”-1”,
-         “content”:”单元机ID不正确，请重新扫码！”,
-         “jqid”:””,
-         “jqbh”:””,
-         “ypmc”:””,
-         “ypid”:””,
-         “ypph”:””,
-         “storage”:-1,
-         “store”:-1,
-         “need”:-1,
-         “zt”:””
-         }
-         */
-    }
+        _curMedicineUnit.jqbh = [dic objectForKey:@"jqbh"];
+        _curMedicineUnit.ypmc = [dic objectForKey:@"ypmc"];
+        _curMedicineUnit.ypid = [dic objectForKey:@"ypid"];
+        _curMedicineUnit.ypph = [dic objectForKey:@"ypph"];
+        _curMedicineUnit.storage = [dic objectForKey:@"storage"];
+        _curMedicineUnit.store = [dic objectForKey:@"store"];
+        _curMedicineUnit.need = [[dic objectForKey:@"need"] integerValue];
+        _curMedicineUnit.zt = [dic objectForKey:@"zt"];
+        [self RefreshUnitInfo];
+        }
     else {
         self->_lbl_res.text = [NSString stringWithFormat:@"请求失败：%@",[dic objectForKey:@"content"]];
     }
@@ -135,6 +121,8 @@
 - (void)OnMatchMedicineResponse: (NSDictionary *)dic{
     int status = [[dic objectForKey:@"status"] intValue];
     if(status == 0) {
+        _isMatched = true;
+        self->_lbl_res.text = @"单元机与药品匹配成功";
         /*
          {
          “status”:”0”,
@@ -146,41 +134,25 @@
          }
          */
     }
+    else {
+        self->_lbl_res.text = [NSString stringWithFormat:@"请求失败：%@",[dic objectForKey:@"content"]];
+    }
 }
 // 请求补药返回
 - (void)OnMedicinePlusResponse: (NSDictionary *)dic{
     int status = [[dic objectForKey:@"status"] intValue];
     if(status == 0) {
-        /*
-         "type":3
-         “status”:”0”,
-         “content”:””,
-         “jqid”:”12345”,
-         “jqbh”:”007”,
-         “ypmc”:”黄芪”,
-         “ypid”:”3575982”,
-         “ypph”:”01-031-02”,
-         “storage”:10000,
-         “store”:20000,
-         “need”:0,
-         “zt”:”正常”
-         
-         */
-        /*
-         "type":3
-         “status”:”-1”,
-         “content”:”请求补药失败！”,
-         “jqid”:”12345”,
-         “jqbh”:”007”,
-         “ypmc”:”黄芪”,
-         “ypid”:”3575982”,
-         “ypph”:”01-031-02”,
-         “storage”:5000,
-         “store”:20000,
-         “need”:1,
-         “zt”:”正常”
-         
-         */
+        self->_lbl_res.text = @"补药成功！";
+
+        _curMedicineUnit.jqid = [dic objectForKey:@"jqid"];
+        _curMedicineUnit.jqbh = [dic objectForKey:@"jqbh"];
+        _curMedicineUnit.ypmc = [dic objectForKey:@"ypmc"];
+        _curMedicineUnit.ypid = [dic objectForKey:@"ypid"];
+        _curMedicineUnit.ypph = [dic objectForKey:@"ypph"];
+        _curMedicineUnit.storage = [dic objectForKey:@"storage"];
+        _curMedicineUnit.store = [dic objectForKey:@"store"];
+        _curMedicineUnit.need = [[dic objectForKey:@"need"] integerValue];
+        _curMedicineUnit.zt = [dic objectForKey:@"zt"];
     }
     else {
         self->_lbl_res.text = [NSString stringWithFormat:@"请求失败：%@",[dic objectForKey:@"content"]];
@@ -210,7 +182,22 @@
     return YES;
 }
 
-- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)RefreshUnitInfo {
+    _lblItem_1.text = [NSString stringWithFormat:@"药品名称：%@",_curMedicineUnit.ypmc];
+    _lblItem_2.text = [NSString stringWithFormat:@"药品余量：%@",_curMedicineUnit.storage];
+    _lblItem_3.text = [NSString stringWithFormat:@"库存：%@",_curMedicineUnit.store];
+    if(_curMedicineUnit.need == 0){
+        _lblItem_4.text = @"不需要补药";
+        _lblItem_4.textColor = [UIColor greenColor];
+    }
+    else{
+        _lblItem_4.text = @"需要补药";
+        _lblItem_4.textColor = [UIColor redColor];
+        
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [_inputView resignFirstResponder];
 }
 

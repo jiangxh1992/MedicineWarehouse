@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *storage;//库存（-1为请求出错）
 @property (nonatomic, copy)NSString *store;//总量
 @property (nonatomic, assign)NSInteger need; //0：不需要补药（绿色）1：需要补药（红色）-1：请求出错
-@property (nonatomic, assign)NSInteger zt;   //单元机运行状态
+@property (nonatomic, assign)NSString *zt;   //单元机运行状态
 
 +(MedicineUnit *)unit;
 

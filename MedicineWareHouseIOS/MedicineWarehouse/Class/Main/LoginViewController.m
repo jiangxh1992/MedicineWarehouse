@@ -40,6 +40,11 @@
 }
 
 - (IBAction)Login {
+    if([_password.text  isEqualToString: @""] || [_passwordconfirm.text  isEqualToString: @""]){
+        _tip.text = @"密码输入不能为空";
+        return;
+    }
+    
     NSDictionary *param = @{@"type":@0,
                             @"name":_username.text,
                             @"password":_password.text
