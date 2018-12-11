@@ -14,9 +14,7 @@
 
 @implementation SignInViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+- (void)viewDidAppear:(BOOL)animated{
     _tip.text = @"";
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable data) {
         self->_tip.text = [data mj_JSONString];
@@ -32,10 +30,16 @@
                     self->_tip.text = [data objectForKey:@"content"];
                 }
             }
-            
         }
     };
-    [XHNetGlobal.Ins ClientSocketConnect];}
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.hidesBackButton = NO;
+    
+    //[XHNetGlobal.Ins ClientSocketConnect];
+}
 
 - (IBAction)SignIn {
     if(![_password.text isEqualToString:_passwordconfirm.text]){
@@ -52,6 +56,10 @@
                             @"name":_username.text,
                             @"password":_password.text
                             };
+    if(!XHNetGlobal.Ins.isSocketConected){
+        _tip.text = @"服务器未连接";
+        return;
+    }
     [XHNetGlobal ClientSocketSend:[param mj_JSONString]];
 }
 

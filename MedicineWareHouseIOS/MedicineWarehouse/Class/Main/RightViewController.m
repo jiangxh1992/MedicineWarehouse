@@ -18,23 +18,17 @@
 
 @implementation RightViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    // 检查是否已经登陆
-    if(!XHGlobalAccount.Ins.isLogin){
-        [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
-    }
-    else
-    {
-        [self SetSocketListener];
-        [XHNetGlobal.Ins ClientSocketConnect];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"管理员";
+    self.title = @"服务器配置";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self SetSocketListener];
+    //[XHNetGlobal.Ins ClientSocketConnect];
     if(XHNetGlobal.Ins.isSocketConected) _lbl_msg.text = @"服务器已连接";
+    
+    //UIBarButtonItem *login = [[UIBarButtonItem alloc] initWithTitle:@"账号登录" style:UIBarButtonItemStyleDone target:self action:@selector(Login)];
+    //self.navigationItem.rightBarButtonItem = login;
 }
 
 // 设置socket服务器监听
@@ -47,11 +41,15 @@
     };
 }
 
+- (void)Login{
+    [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+}
+
 - (IBAction)ConnetServer {
     if(!XHNetGlobal.Ins.isSocketConected){
-        NSString *IP = _inputIP.text;
-        //int Port = [_inputPort.text intValue];
-        [XHNetGlobal.Ins.clientSocket connectToHost:IP onPort:8080 error:nil];
+        XHNetGlobal.Ins.serverIP = _inputIP.text;
+        XHNetGlobal.Ins.serverPort = [_inputPort.text intValue];
+        [XHNetGlobal.Ins ClientSocketConnect];
         [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
     }
 }

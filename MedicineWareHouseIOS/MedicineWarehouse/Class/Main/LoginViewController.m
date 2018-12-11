@@ -8,15 +8,14 @@
 
 #import "LoginViewController.h"
 #import "SignInViewController.h"
+#import "AccountViewController.h"
 
 @interface LoginViewController ()
 @end
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+- (void)viewDidAppear:(BOOL)animated{
     _tip.text = @"";
     XHNetGlobal.Ins.socketDidReadDta = ^(NSDictionary * _Nullable data) {
         self->_tip.text = [data mj_JSONString];
@@ -27,20 +26,32 @@
                 if(status == 0) {
                     self->_tip.text = @"登录成功";
                     XHGlobalAccount.Ins.isLogin = YES;
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    XHGlobalAccount.Ins.account.username = [data objectForKey:@"name"];
+                    [self.navigationController pushViewController:[[AccountViewController alloc] init] animated:YES];
+                    //[self.navigationController popToRootViewControllerAnimated:YES];
                 }
                 else{
                     self->_tip.text = [data objectForKey:@"content"];
                 }
             }
-                
+            
         }
     };
-    [XHNetGlobal.Ins ClientSocketConnect];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.hidesBackButton = NO;
+    self.title = @"账号";
+    
+    //[XHNetGlobal.Ins ClientSocketConnect];
+    if(XHGlobalAccount.Ins.isLogin){
+        [self.navigationController pushViewController:[[AccountViewController alloc] init] animated:YES];
+    }
 }
 
 - (IBAction)Login {
-    if([_password.text  isEqualToString: @""] || [_passwordconfirm.text  isEqualToString: @""]){
+    if([_password.text  isEqualToString: @""]){
         _tip.text = @"密码输入不能为空";
         return;
     }
@@ -49,6 +60,10 @@
                             @"name":_username.text,
                             @"password":_password.text
                             };
+    if(!XHNetGlobal.Ins.isSocketConected){
+        _tip.text = @"服务器未连接";
+        return;
+    }
     [XHNetGlobal ClientSocketSend:[param mj_JSONString]];
 }
 
@@ -60,15 +75,5 @@
     [_username resignFirstResponder];
     [_password resignFirstResponder];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

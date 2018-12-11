@@ -18,6 +18,8 @@ typedef void (^SocketCallbackData)(NSDictionary * _Nullable data);
 }
 
 @property (nonatomic, assign)BOOL isSocketConected;
+@property (nonatomic, copy)NSString *serverIP;
+@property (nonatomic, assign)int serverPort;
 @property (nonatomic, copy) SocketCallbackData socketDidReadDta;
 @property (nonatomic, copy) SocketCallbackMsg socketDidConnected;
 

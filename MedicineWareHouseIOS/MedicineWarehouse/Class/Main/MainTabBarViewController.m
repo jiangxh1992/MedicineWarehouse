@@ -12,6 +12,7 @@
 #import "MainTabBarViewController.h"
 #import "LeftViewController.h"
 #import "RightViewController.h"
+#import "LoginViewController.h"
 #import "ViewController.h"
 
 @interface MainTabBarViewController ()
@@ -32,9 +33,15 @@
     leftNavController.tabBarItem.image = [UIImage imageNamed:@"home"];
     [self addChildViewController:leftNavController];
     
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    UINavigationController *loginNavController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    loginNavController.tabBarItem.title = @"账号";
+    loginNavController.tabBarItem.image = [UIImage imageNamed:@"home"];
+    [self addChildViewController:loginNavController];
+    
     RightViewController *rightViewController = [[RightViewController alloc] init];
     UINavigationController *rightNavController = [[UINavigationController alloc] initWithRootViewController:rightViewController];
-    rightNavController.tabBarItem.title = @"服务器管理";
+    rightNavController.tabBarItem.title = @"服务器";
     rightNavController.tabBarItem.image = [UIImage imageNamed:@"home"];
     [self addChildViewController:rightNavController];
     

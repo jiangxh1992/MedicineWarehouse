@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountViewController">
+            <connections>
+                <outlet property="username" destination="3NS-S5-oVY" id="DRx-cB-79i"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="road" translatesAutoresizingMaskIntoConstraints="NO" id="sQi-zi-ack">
+                    <rect key="frame" x="137.5" y="120" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Drn-3H-Jnt"/>
+                        <constraint firstAttribute="width" constant="100" id="n2c-lx-QX8"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NS-S5-oVY">
+                    <rect key="frame" x="146.5" y="303" width="82.5" height="32.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtp-Af-Kb8">
+                    <rect key="frame" x="87.5" y="485.5" width="200" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="S0P-fX-Ufe"/>
+                        <constraint firstAttribute="height" constant="30" id="cv2-gd-TEb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="退出登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="Logout" destination="-1" eventType="touchUpInside" id="lLY-6O-i1p"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3NS-S5-oVY" firstAttribute="top" secondItem="sQi-zi-ack" secondAttribute="bottom" constant="83" id="7sF-9O-JDu"/>
+                <constraint firstItem="Dtp-Af-Kb8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KFd-ig-TJs"/>
+                <constraint firstItem="3NS-S5-oVY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mun-1z-Dfj"/>
+                <constraint firstItem="sQi-zi-ack" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OWU-de-Elw"/>
+                <constraint firstItem="sQi-zi-ack" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="OyS-eR-XOr"/>
+                <constraint firstItem="Dtp-Af-Kb8" firstAttribute="top" secondItem="3NS-S5-oVY" secondAttribute="bottom" constant="150" id="siw-E1-XbH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="road" width="165.89999389648438" height="165.30000305175781"/>
+    </resources>
+</document>

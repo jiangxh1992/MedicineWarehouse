@@ -10,6 +10,8 @@
 		690B845721AF90A2005ABFC9 /* MedicineUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B845521AF90A2005ABFC9 /* MedicineUnitViewController.m */; };
 		690B845821AF90A2005ABFC9 /* MedicineUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */; };
 		690B845B21B01464005ABFC9 /* ScanSuccessJumpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B845A21B01464005ABFC9 /* ScanSuccessJumpVC.m */; };
+		6918481821BFA8C50024A62E /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918481621BFA8C50024A62E /* AccountViewController.m */; };
+		6918481921BFA8C50024A62E /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6918481721BFA8C50024A62E /* AccountViewController.xib */; };
 		6985C754219ED8B200A07A8A /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C753219ED8B200A07A8A /* MainTabBarViewController.m */; };
 		6985C757219EDC4C00A07A8A /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985C756219EDC4C00A07A8A /* LeftViewController.m */; };
 		6985C764219FE6E800A07A8A /* SGQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6985C75D219FE6E800A07A8A /* SGQRCode.bundle */; };
@@ -78,6 +80,9 @@
 		690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineUnitViewController.xib; sourceTree = "<group>"; };
 		690B845921B01464005ABFC9 /* ScanSuccessJumpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSuccessJumpVC.h; sourceTree = "<group>"; };
 		690B845A21B01464005ABFC9 /* ScanSuccessJumpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSuccessJumpVC.m; sourceTree = "<group>"; };
+		6918481521BFA8C50024A62E /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		6918481621BFA8C50024A62E /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		6918481721BFA8C50024A62E /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		6985C752219ED8B200A07A8A /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		6985C753219ED8B200A07A8A /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		6985C755219EDC4C00A07A8A /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -213,6 +218,9 @@
 				690B845421AF90A2005ABFC9 /* MedicineUnitViewController.h */,
 				690B845521AF90A2005ABFC9 /* MedicineUnitViewController.m */,
 				690B845621AF90A2005ABFC9 /* MedicineUnitViewController.xib */,
+				6918481521BFA8C50024A62E /* AccountViewController.h */,
+				6918481621BFA8C50024A62E /* AccountViewController.m */,
+				6918481721BFA8C50024A62E /* AccountViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -513,6 +521,7 @@
 				69D40F7E219AEFDD008E9A55 /* Assets.xcassets in Resources */,
 				698B1A9721AA90E300E81D44 /* LoginViewController.xib in Resources */,
 				690B845821AF90A2005ABFC9 /* MedicineUnitViewController.xib in Resources */,
+				6918481921BFA8C50024A62E /* AccountViewController.xib in Resources */,
 				6985C779219FFDFB00A07A8A /* MBProgressHUD.bundle in Resources */,
 				698B1AA221AA9DFE00E81D44 /* SignInViewController.xib in Resources */,
 				698B1AA721AAA44300E81D44 /* RightViewController.xib in Resources */,
@@ -564,6 +573,7 @@
 				69D40FD0219C3DAE008E9A55 /* NSString+MJExtension.m in Sources */,
 				6985C778219FFDFB00A07A8A /* MBProgressHUD+SGQRCode.m in Sources */,
 				69D40FCC219C3DAE008E9A55 /* NSObject+MJCoding.m in Sources */,
+				6918481821BFA8C50024A62E /* AccountViewController.m in Sources */,
 				698B1AA121AA9DFD00E81D44 /* SignInViewController.m in Sources */,
 				69D40FCD219C3DAE008E9A55 /* MJExtensionConst.m in Sources */,
 				69D40FC9219C3DAE008E9A55 /* MJPropertyType.m in Sources */,
@@ -684,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -739,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -751,8 +761,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4SYMZQA29;
+				DEVELOPMENT_TEAM = 4D2S2DM6YC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MedicineWarehouse/Common/GCDAsynSocket",
@@ -760,13 +771,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
 				INFOPLIST_FILE = MedicineWarehouse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouse;
+				PRODUCT_BUNDLE_IDENTIFIER = road.Medicine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -775,8 +787,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4SYMZQA29;
+				DEVELOPMENT_TEAM = 4D2S2DM6YC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MedicineWarehouse/Common/GCDAsynSocket",
@@ -784,13 +797,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MedicineWarehouse/PrefixHeader.pch";
 				INFOPLIST_FILE = MedicineWarehouse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jxh.MedicineWarehouse;
+				PRODUCT_BUNDLE_IDENTIFIER = road.Medicine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -879,7 +893,7 @@
 				69D40F9C219AEFDD008E9A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		69D40F9D219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouse" */ = {
 			isa = XCConfigurationList;
@@ -888,7 +902,7 @@
 				69D40F9F219AEFDE008E9A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		69D40FA0219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseTests" */ = {
 			isa = XCConfigurationList;
@@ -897,7 +911,7 @@
 				69D40FA2219AEFDE008E9A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		69D40FA3219AEFDE008E9A55 /* Build configuration list for PBXNativeTarget "MedicineWarehouseUITests" */ = {
 			isa = XCConfigurationList;
@@ -906,7 +920,7 @@
 				69D40FA5219AEFDE008E9A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

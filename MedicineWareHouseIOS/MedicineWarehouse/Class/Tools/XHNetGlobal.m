@@ -43,6 +43,9 @@
     if (self = [super init])
     {
         _session = [NSURLSession sharedSession];
+        _isSocketConected = NO;
+        _serverIP = @"0,0,0,0";
+        _serverPort = 8080;
         [self setSocketDidConnected:^(NSString * _Nullable data) {
             
         }];
@@ -140,7 +143,7 @@
 
 - (void)ClientSocketConnect {
     if(!XHNetGlobal.Ins.isSocketConected){
-        [XHNetGlobal.Ins.clientSocket connectToHost:@"10.246.149.17" onPort:8080 error:nil];
+        [XHNetGlobal.Ins.clientSocket connectToHost:_serverIP onPort:_serverPort error:nil];
         [XHNetGlobal.Ins.clientSocket readDataWithTimeout:-1 tag:0];
     }
 }
