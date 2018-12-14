@@ -24,7 +24,8 @@
             if(type == XHSocketRequestTypeLogin){
                 int status = [[data objectForKey:@"status"] intValue];
                 if(status == 0) {
-                    self->_tip.text = @"登录成功";
+                    //self->_tip.text = @"登录成功";
+                    XHShowMsg(@"登录成功");
                     XHGlobalAccount.Ins.isLogin = YES;
                     XHGlobalAccount.Ins.account.username = [data objectForKey:@"name"];
                     [self.navigationController pushViewController:[[AccountViewController alloc] init] animated:YES];
@@ -52,7 +53,8 @@
 
 - (IBAction)Login {
     if([_password.text  isEqualToString: @""]){
-        _tip.text = @"密码输入不能为空";
+        //_tip.text = @"密码输入不能为空";
+        XHShowMsg(@"密码输入不能为空");
         return;
     }
     
@@ -61,7 +63,8 @@
                             @"password":_password.text
                             };
     if(!XHNetGlobal.Ins.isSocketConected){
-        _tip.text = @"服务器未连接";
+        //_tip.text = @"服务器未连接";
+        XHShowMsg(@"服务器未连接");
         return;
     }
     [XHNetGlobal ClientSocketSend:[param mj_JSONString]];

@@ -9,7 +9,6 @@
 #import "LeftViewController.h"
 #import "SGQRCode.h"
 #import "WCQRCodeVC.h"
-#import "ScanSuccessJumpVC.h"
 
 @interface LeftViewController (){
     SGQRCodeObtain *qrcodeObtain;
@@ -31,6 +30,7 @@
     {
         [self ClearView];
         self.title = @"请先登录";
+        XHShowMsg(@"请先登录");
     }
 }
 

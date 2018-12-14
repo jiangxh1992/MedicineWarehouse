@@ -25,6 +25,8 @@
     
     [self SetSocketListener];
     //[XHNetGlobal.Ins ClientSocketConnect];
+    _lbl_res.text = @"";
+    _lbl_msg.text = @"";
     if(XHNetGlobal.Ins.isSocketConected) _lbl_msg.text = @"服务器已连接";
     
     //UIBarButtonItem *login = [[UIBarButtonItem alloc] initWithTitle:@"账号登录" style:UIBarButtonItemStyleDone target:self action:@selector(Login)];

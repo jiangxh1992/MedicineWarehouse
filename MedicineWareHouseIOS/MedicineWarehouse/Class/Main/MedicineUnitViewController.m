@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *lblItem_2;
 @property (nonatomic, weak) IBOutlet UILabel *lblItem_3;
 @property (nonatomic, weak) IBOutlet UILabel *lblItem_4;
+@property (nonatomic, weak) IBOutlet UILabel *lblItem_5;
 @property (nonatomic, weak) IBOutlet UITextField *inputView;
 @property (nonatomic, weak) IBOutlet UILabel *lbl_msg;
 
@@ -27,6 +28,12 @@
 @end
 
 @implementation MedicineUnitViewController
+
+- (void)viewDidAppear:(BOOL)animated{
+    if(!XHGlobalAccount.Ins.isLogin){
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,14 +78,16 @@
     }
     else{
         [XHNetGlobal.Ins ClientSocketConnect];
-        _lbl_msg.text = @"服务器断开请重试";
+        //_lbl_msg.text = @"服务器断开请重试";
+        XHShowMsg(@"服务器断开请重试");
     }
 }
 
 // 请求补药
 - (IBAction)ReqAddMedicine{
     if (!_isMatched) {
-        _lbl_msg.text = @"无法补药，请先扫描药品匹配单元机！";
+        //_lbl_msg.text = @"无法补药，请先扫描药品匹配单元机！";
+        XHShowMsg(@"无法补药，请先扫描药品匹配单元机！");
         return;
     }
     
@@ -91,7 +100,7 @@
         [XHNetGlobal ClientSocketSend:paramstr];
     }
     else{
-        [MBProgressHUD SG_showMBProgressHUDWithModifyStyleMessage:@"输入数量非法" toView:self.view];
+        XHShowMsg(@"输入数量非法");
     }
 }
 
@@ -122,7 +131,8 @@
     int status = [[dic objectForKey:@"status"] intValue];
     if(status == 0) {
         _isMatched = true;
-        self->_lbl_res.text = @"单元机与药品匹配成功";
+        //self->_lbl_res.text = @"单元机与药品匹配成功";
+        XHShowMsg(@"单元机与药品匹配成功");
         /*
          {
          “status”:”0”,
@@ -142,7 +152,8 @@
 - (void)OnMedicinePlusResponse: (NSDictionary *)dic{
     int status = [[dic objectForKey:@"status"] intValue];
     if(status == 0) {
-        self->_lbl_res.text = @"补药成功！";
+        //self->_lbl_res.text = @"补药成功！";
+        XHShowMsg(@"补药成功！");
 
         _curMedicineUnit.jqid = [dic objectForKey:@"jqid"];
         _curMedicineUnit.jqbh = [dic objectForKey:@"jqbh"];
@@ -183,16 +194,17 @@
 }
 
 - (void)RefreshUnitInfo {
-    _lblItem_1.text = [NSString stringWithFormat:@"药品名称：%@",_curMedicineUnit.ypmc];
-    _lblItem_2.text = [NSString stringWithFormat:@"药品余量：%@",_curMedicineUnit.storage];
-    _lblItem_3.text = [NSString stringWithFormat:@"库存：%@",_curMedicineUnit.store];
+    _lblItem_1.text = [NSString stringWithFormat:@"机器ID：%@", _curMedicineUnit.jqid];
+    _lblItem_2.text = [NSString stringWithFormat:@"药品名称：%@",_curMedicineUnit.ypmc];
+    _lblItem_3.text = [NSString stringWithFormat:@"药品批号：%@",_curMedicineUnit.ypph];
+    _lblItem_4.text = [NSString stringWithFormat:@"库存：%@",_curMedicineUnit.store];
     if(_curMedicineUnit.need == 0){
-        _lblItem_4.text = @"不需要补药";
-        _lblItem_4.textColor = [UIColor greenColor];
+        _lblItem_5.text = @"不需要补药";
+        _lblItem_5.textColor = [UIColor greenColor];
     }
     else{
-        _lblItem_4.text = @"需要补药";
-        _lblItem_4.textColor = [UIColor redColor];
+        _lblItem_5.text = @"需要补药";
+        _lblItem_5.textColor = [UIColor redColor];
         
     }
 }

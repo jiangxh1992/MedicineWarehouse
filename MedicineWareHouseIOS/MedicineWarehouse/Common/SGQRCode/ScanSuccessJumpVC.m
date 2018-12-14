@@ -22,6 +22,12 @@
 
 @implementation ScanSuccessJumpVC
 
+- (void)viewDidAppear:(BOOL)animated{
+    if(!XHGlobalAccount.Ins.isLogin){
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

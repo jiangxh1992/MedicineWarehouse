@@ -25,9 +25,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsglinemsgline" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nke-OQ-kpj">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nke-OQ-kpj">
                     <rect key="frame" x="10" y="40" width="355" height="200"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="V9d-tf-dNy"/>
                     </constraints>
@@ -35,16 +35,22 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.246.149.17" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnz-9Z-yK5" userLabel="IP">
-                    <rect key="frame" x="10" y="290" width="265" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.246.149.17" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnz-9Z-yK5" userLabel="IP">
+                    <rect key="frame" x="10" y="290" width="265" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="bUG-Vq-44N"/>
+                    </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8080" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-vA-mx1" userLabel="Port">
-                    <rect key="frame" x="278" y="290" width="87" height="30"/>
+                    <rect key="frame" x="278" y="290" width="87" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GcW-mw-W9J"/>
+                    </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器IP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-0F-2NU">
@@ -60,10 +66,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBs-HT-MUs">
-                    <rect key="frame" x="50" y="350" width="275" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.66078937326432063" blue="0.19091994761694575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="50" y="390" width="275" height="36"/>
+                    <color key="backgroundColor" red="0.13167259670000001" green="0.48916325649999998" blue="0.73994090030000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="重连服务器">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="ConnetServer" destination="-1" eventType="touchUpInside" id="Dpz-J5-NSY"/>
@@ -71,23 +79,27 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器未连接" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-ud-NvK">
-                    <rect key="frame" x="141.5" y="327" width="92" height="18"/>
+                    <rect key="frame" x="141.5" y="367" width="92" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHi-h7-JCv">
-                    <rect key="frame" x="10" y="440" width="355" height="100"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHi-h7-JCv">
+                    <rect key="frame" x="10" y="502" width="355" height="0.0"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="A3k-lp-Y0D"/>
+                        <constraint firstAttribute="height" id="4nj-vR-cQ3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKp-SH-5xS">
-                    <rect key="frame" x="50" y="570" width="275" height="30"/>
-                    <color key="backgroundColor" red="0.047431041069999999" green="0.61251214379999996" blue="0.20673229069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="50" y="532" width="275" height="0.0"/>
+                    <color key="backgroundColor" red="0.13167259670000001" green="0.48916325649999998" blue="0.73994090030000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="qxy-vb-JCd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="发送">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -96,16 +108,18 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-Lm-QU5">
-                    <rect key="frame" x="50" y="390" width="275" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.20039104269999999" blue="0.10521085299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="50" y="446" width="275" height="36"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="断开服务器">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="tBs-HT-MUs" firstAttribute="top" secondItem="xnz-9Z-yK5" secondAttribute="bottom" constant="30" id="0n1-nl-isj"/>
+                <constraint firstItem="tBs-HT-MUs" firstAttribute="top" secondItem="xnz-9Z-yK5" secondAttribute="bottom" constant="50" id="0n1-nl-isj"/>
                 <constraint firstItem="bhx-Lm-QU5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="1tS-sO-t1P"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="xnz-9Z-yK5" secondAttribute="trailing" constant="100" id="2bp-G9-TNW"/>
                 <constraint firstItem="RKp-SH-5xS" firstAttribute="top" secondItem="fHi-h7-JCv" secondAttribute="bottom" constant="30" id="3Ev-Z7-FAp"/>
@@ -129,7 +143,7 @@
                 <constraint firstItem="hDA-vA-mx1" firstAttribute="top" secondItem="Nke-OQ-kpj" secondAttribute="bottom" constant="50" id="gOA-ck-pKt"/>
                 <constraint firstItem="hDA-vA-mx1" firstAttribute="top" secondItem="pXT-BV-UYq" secondAttribute="bottom" constant="10" id="h5K-By-5KP"/>
                 <constraint firstItem="RKp-SH-5xS" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="h94-xt-YGS"/>
-                <constraint firstItem="bhx-Lm-QU5" firstAttribute="top" secondItem="tBs-HT-MUs" secondAttribute="bottom" constant="10" id="uAy-O2-uCJ"/>
+                <constraint firstItem="bhx-Lm-QU5" firstAttribute="top" secondItem="tBs-HT-MUs" secondAttribute="bottom" constant="20" id="uAy-O2-uCJ"/>
                 <constraint firstItem="NFR-0F-2NU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="w6r-lY-4uR"/>
                 <constraint firstItem="hDA-vA-mx1" firstAttribute="leading" secondItem="xnz-9Z-yK5" secondAttribute="trailing" constant="3" id="wHX-JB-6xI"/>
             </constraints>

@@ -31,5 +31,6 @@
 // 通过RGB快速创建颜色
 #define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define RGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
-
+// toast
+#define XHShowMsg(msg) [MBProgressHUD SG_showMBProgressHUDWithOnlyMessage:msg delayTime:1.5]
 #endif /* PrefixHeader_pch */

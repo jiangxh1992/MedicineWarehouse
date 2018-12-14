@@ -23,7 +23,8 @@
             if(type == XHSocketRequestTypeSignIn){
                 int status = [[data objectForKey:@"status"] intValue];
                 if(status == 0) {
-                    self->_tip.text = @"注册成功";
+                    //self->_tip.text = @"注册成功";
+                    XHShowMsg(@"注册成功");
                     [self.navigationController popViewControllerAnimated:YES];
                 }
                 else{
@@ -43,12 +44,14 @@
 
 - (IBAction)SignIn {
     if(![_password.text isEqualToString:_passwordconfirm.text]){
-        _tip.text = @"两次密码输入不一致";
+        //_tip.text = @"两次密码输入不一致";
+        XHShowMsg(@"两次密码输入不一致");
         return;
     }
     
     if([_password.text  isEqualToString: @""] || [_passwordconfirm.text  isEqualToString: @""]){
-        _tip.text = @"密码输入不能为空";
+        //_tip.text = @"密码输入不能为空";
+        XHShowMsg(@"密码输入不能为空");
         return;
     }
     
@@ -57,7 +60,8 @@
                             @"password":_password.text
                             };
     if(!XHNetGlobal.Ins.isSocketConected){
-        _tip.text = @"服务器未连接";
+        //_tip.text = @"服务器未连接";
+        XHShowMsg(@"服务器未连接");
         return;
     }
     [XHNetGlobal ClientSocketSend:[param mj_JSONString]];
