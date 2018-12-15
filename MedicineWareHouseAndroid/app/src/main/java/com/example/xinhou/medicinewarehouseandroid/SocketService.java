@@ -55,9 +55,9 @@ public class SocketService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        /*拿到传递过来的ip和端口号*/
-        ip = intent.getStringExtra(Constants.INTENT_IP);
-        port = intent.getStringExtra(Constants.INTENT_PORT);
+        /*ip和端口号*/
+        ip = Constants.INTENT_IP;
+        port = Constants.INTENT_PORT;
         /*初始化socket*/
         initSocket();
         return super.onStartCommand(intent, flags, startId);
