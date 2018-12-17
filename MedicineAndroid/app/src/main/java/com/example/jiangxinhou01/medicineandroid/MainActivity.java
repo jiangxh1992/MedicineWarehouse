@@ -1,31 +1,28 @@
 package com.example.jiangxinhou01.medicineandroid;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
+
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static Context context = null;
-    private ServiceConnection serviceConnection;
-
     private TextView mTextMessage;
 
     public static Context getContext(){
         return context;
     }
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -52,32 +49,33 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        bindSocketService();
+        // 连接服务器
+        ConnectSocket();
+
+        //XHNetGlobal.getInstance().SendMessage("服务器你好！");
+
+        XHNetGlobal.msgCBHandler = new Handler(){
+            public void handleMessage(Message msg){
+                String dataStr = (String)msg.obj;
+                XHGlobalTool.toastText("服务器返回数据："+dataStr);
+            }
+        };
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        unbindService(serviceConnection);
-        Intent intent = new Intent(getApplicationContext(), SocketService.class);
+        DisConnectSocket();
+    }
+
+    private void ConnectSocket(){
+        Intent intent = new Intent(getContext(), SocketService.class);
+        bindService(intent, XHNetGlobal.getInstance().serviceConnection, BIND_AUTO_CREATE);
+    }
+
+    private void DisConnectSocket(){
+        unbindService(XHNetGlobal.getInstance().serviceConnection);
+        Intent intent = new Intent(getContext(), SocketService.class);
         stopService(intent);
     }
-
-    private void bindSocketService(){
-        serviceConnection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SocketService.SocketBinder binder = (SocketService.SocketBinder) iBinder;
-                XHNetGlobal.getInstance().socketService = binder.getService();
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName componentName) {
-                XHNetGlobal.getInstance().socketService = null;
-            }
-        };
-        Intent intent = new Intent(getApplicationContext(), SocketService.class);
-        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
-    }
-
 }

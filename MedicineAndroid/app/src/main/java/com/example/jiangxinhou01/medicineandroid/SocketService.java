@@ -30,6 +30,10 @@ public class SocketService extends Service {
     public SocketService() {
     }
 
+    public Socket getSocket() {
+        return socket;
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
@@ -68,7 +72,7 @@ public class SocketService extends Service {
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler(){
-        public void handleMessage(android.os.Message msg){
+        public void handleMessage(Message msg){
             switch(msg.what){
                 case 1:
                     IsAndOs stream = (IsAndOs)msg.obj;
@@ -86,6 +90,7 @@ public class SocketService extends Service {
             }
         };
     };
+
     public void initSocketClient(){
         new Thread(new Runnable() {
             @Override
@@ -120,7 +125,11 @@ public class SocketService extends Service {
                 Message msg = handler.obtainMessage();
                 msg.what = 2;
                 msg.obj = receivedData;
-                handler.sendMessage(msg);
+                //handler.sendMessage(msg);
+
+                Message msg2 = XHNetGlobal.msgCBHandler.obtainMessage();
+                msg2.obj = receivedData;
+                XHNetGlobal.msgCBHandler.sendMessage(msg2);
             } catch (IOException e){
                 e.printStackTrace();
             }
