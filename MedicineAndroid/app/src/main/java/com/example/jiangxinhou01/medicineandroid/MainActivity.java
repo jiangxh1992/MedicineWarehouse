@@ -2,6 +2,7 @@ package com.example.jiangxinhou01.medicineandroid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -11,40 +12,20 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements FirstFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener {
+
+    private ViewPager viewpager;
+    private List<Fragment>fragments;
 
     private static Context context = null;
-    private List<Fragment> fragments;
-    private FragmentManager fragmentManager;
-
-    private class FragmentAdaptor extends PagerAdapter{
-        private List<Fragment> fragments;
-        private Context mContext;
-        public FragmentAdaptor(List<Fragment> frags, Context mContext){
-            fragments = frags;
-            this.mContext = mContext;
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-            return false;
-        }
-
-        @Override
-        public int getCount(){
-            return fragments.size();
-        }
-    }
-
-
     public static Context getContext(){
         return context;
     }
@@ -55,23 +36,30 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_operation:
+                    viewpager.setCurrentItem(0);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_account:
+                    viewpager.setCurrentItem(1);
                     return true;
-                case R.id.navigation_notifications:
-                    return true;
+                //case R.id.navigation_server:
+                  //  viewpager.setCurrentItem(2);
+                    //return true;
             }
             return false;
         }
     };
 
     @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
-        setUI();
 
         // 连接服务器
         ConnectSocket();
@@ -99,17 +87,19 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        //fragments.add(new HomeFragment());
-
-        // viewpager
-        //ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
-        //FragmentAdaptor adaptor = new FragmentAdaptor(fragments, getContext());
-        //viewPager.setAdapter(adaptor);
+        initViewPager();
     }
 
-    // UI配置
-    private void setUI(){
+    private void initViewPager(){
+        viewpager = (ViewPager)findViewById(R.id.viewPager);
+        fragments = new ArrayList<Fragment>();
+        fragments.add(new FirstFragment());
+        fragments.add(new HomeFragment());
 
+        FragmentManager fm = getSupportFragmentManager();
+        NavFragmentPagerAdapter fragmentAdapt = new NavFragmentPagerAdapter(fm,fragments);
+        viewpager.setAdapter(fragmentAdapt);
+        viewpager.setCurrentItem(0);
     }
 
     private void ConnectSocket(){
