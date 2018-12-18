@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -28,6 +30,11 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private EditText input_ip = null;
+    private EditText input_port = null;
+    private Button btn_connect = null;
+    private Button btn_disconnect = null;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -104,5 +111,32 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        input_ip = (EditText)getView().findViewById(R.id.input_ip);
+        input_port = (EditText)getView().findViewById(R.id.input_port);
+        btn_connect = (Button)getView().findViewById(R.id.btn_connect);
+        btn_disconnect = (Button)getView().findViewById(R.id.btn_disconnect);
+
+        btn_connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ip = input_ip.getText().toString();
+                int port = Integer.parseInt(input_port.getText().toString());
+                XHNetGlobal.getInstance().setSocketIPandPort(ip,port);
+                MainActivity activity = (MainActivity)getActivity();
+                activity.ConnectSocket();
+            }
+        });
+        btn_disconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity)getActivity();
+                activity.DisConnectSocket();
+            }
+        });
     }
 }

@@ -14,6 +14,6 @@ class XHGlobalTool {
 
     // defaul toast
     public static void toastText(String message) {
-        Toast.makeText(MainActivity.getContext(), message, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -5,6 +5,8 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 
+import java.net.Socket;
+
 class XHNetGlobal {
     private static final XHNetGlobal ourInstance = new XHNetGlobal();
 
@@ -27,11 +29,21 @@ class XHNetGlobal {
             socketService = null;
         }
     };
+    public static String dynamicIP = "192.168.146.1";
+    public static int dynamicPort = 9500;
+
+    // set ip and port
+    public void setSocketIPandPort(String ip, int port){
+        dynamicIP = ip;
+        dynamicPort = port;
+    }
 
     // socket connect status
     public boolean IsSocketConnected(){
         if(socketService == null) return false;
-        return socketService.getSocket().isConnected();
+        Socket socket = socketService.getSocket();
+        if(socket == null) return false;
+        return socket.isConnected();
     }
 
     // 接收数据回调

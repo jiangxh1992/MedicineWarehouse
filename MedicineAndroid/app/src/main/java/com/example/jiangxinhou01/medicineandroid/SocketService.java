@@ -18,8 +18,8 @@ import java.net.UnknownHostException;
 public class SocketService extends Service {
 
     // Socket
-    private final String SERVER_HOST_IP = "192.168.146.1";
-    private final int SERVER_HOST_PORT = 9500;
+    //private  String SERVER_HOST_IP = "192.168.146.1";
+    //private  int SERVER_HOST_PORT = 9500;
     private Socket socket;
     private Thread thread;
     private OutputStream outStream;
@@ -96,7 +96,7 @@ public class SocketService extends Service {
             @Override
             public void run() {
                 try{
-                    socket = new Socket(SERVER_HOST_IP,SERVER_HOST_PORT);
+                    socket = new Socket(XHNetGlobal.dynamicIP,XHNetGlobal.dynamicPort);
                     PrintStream pStream = new PrintStream(socket.getOutputStream(), true, "utf-8");
                     InputStream inStream = socket.getInputStream();
                     IsAndOs io = new IsAndOs();

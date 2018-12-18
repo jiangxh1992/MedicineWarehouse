@@ -61,9 +61,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initUI();
 
-        // 连接服务器
-        ConnectSocket();
-
         // 服务器返回数据
         XHNetGlobal.msgCBHandler = new Handler(){
             public void handleMessage(Message msg){
@@ -102,14 +99,21 @@ public class MainActivity extends AppCompatActivity
         viewpager.setCurrentItem(0);
     }
 
-    private void ConnectSocket(){
+    public void ConnectSocket(){
+        if(XHNetGlobal.getInstance().IsSocketConnected()) {
+            XHGlobalTool.toastText("服务器已连接");
+        }
+
         Intent intent = new Intent(getContext(), SocketService.class);
         bindService(intent, XHNetGlobal.getInstance().serviceConnection, BIND_AUTO_CREATE);
     }
 
-    private void DisConnectSocket(){
-        unbindService(XHNetGlobal.getInstance().serviceConnection);
-        Intent intent = new Intent(getContext(), SocketService.class);
-        stopService(intent);
+    public void DisConnectSocket(){
+        if(XHNetGlobal.getInstance().IsSocketConnected()){
+            unbindService(XHNetGlobal.getInstance().serviceConnection);
+            Intent intent = new Intent(getContext(), SocketService.class);
+            stopService(intent);
+        }
+        XHGlobalTool.toastText("服务器已经断开");
     }
 }
