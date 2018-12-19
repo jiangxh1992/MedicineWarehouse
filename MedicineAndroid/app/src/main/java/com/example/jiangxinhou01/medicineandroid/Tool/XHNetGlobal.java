@@ -1,4 +1,4 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Tool;
 
 import android.content.ComponentName;
 import android.content.ServiceConnection;
@@ -7,10 +7,10 @@ import android.os.IBinder;
 
 import java.net.Socket;
 
-class XHNetGlobal {
+public class XHNetGlobal {
     private static final XHNetGlobal ourInstance = new XHNetGlobal();
 
-    static XHNetGlobal getInstance() {
+    public static XHNetGlobal getInstance() {
         return ourInstance;
     }
 

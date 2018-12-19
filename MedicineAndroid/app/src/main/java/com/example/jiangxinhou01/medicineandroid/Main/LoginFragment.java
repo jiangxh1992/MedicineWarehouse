@@ -1,25 +1,33 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Main;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+
+import com.example.jiangxinhou01.medicineandroid.Main.Login.LoginFormFragment;
+import com.example.jiangxinhou01.medicineandroid.Main.Login.SignInFormFragment;
+import com.example.jiangxinhou01.medicineandroid.R;
+import com.example.jiangxinhou01.medicineandroid.Tool.NavFragmentPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link LoginFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class LoginFragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,14 +39,13 @@ public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private EditText input_ip = null;
-    private EditText input_port = null;
-    private Button btn_connect = null;
-    private Button btn_disconnect = null;
+    private ViewPager viewPager;
+    private List<Fragment>fragments;
 
-    public HomeFragment() {
+    public LoginFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -46,11 +53,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment LoginFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,7 +78,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -116,27 +123,15 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        input_ip = (EditText)getView().findViewById(R.id.input_ip);
-        input_port = (EditText)getView().findViewById(R.id.input_port);
-        btn_connect = (Button)getView().findViewById(R.id.btn_connect);
-        btn_disconnect = (Button)getView().findViewById(R.id.btn_disconnect);
 
-        btn_connect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String ip = input_ip.getText().toString();
-                int port = Integer.parseInt(input_port.getText().toString());
-                XHNetGlobal.getInstance().setSocketIPandPort(ip,port);
-                MainActivity activity = (MainActivity)getActivity();
-                activity.ConnectSocket();
-            }
-        });
-        btn_disconnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity activity = (MainActivity)getActivity();
-                activity.DisConnectSocket();
-            }
-        });
+        viewPager = (ViewPager)getView().findViewById(R.id.loginViewPager);
+        fragments = new ArrayList<Fragment>();
+        fragments.add(new LoginFormFragment());
+        fragments.add(new SignInFormFragment());
+
+        FragmentManager fm = getChildFragmentManager();
+        NavFragmentPagerAdapter navAdpter = new NavFragmentPagerAdapter(fm, fragments);
+        viewPager.setAdapter(navAdpter);
+        viewPager.setCurrentItem(0);
     }
 }

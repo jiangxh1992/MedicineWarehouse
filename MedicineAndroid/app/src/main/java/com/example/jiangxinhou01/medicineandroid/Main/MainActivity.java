@@ -1,4 +1,4 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,12 +15,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.jiangxinhou01.medicineandroid.Main.Login.LoginFormFragment;
+import com.example.jiangxinhou01.medicineandroid.Main.Login.SignInFormFragment;
+import com.example.jiangxinhou01.medicineandroid.R;
+import com.example.jiangxinhou01.medicineandroid.Tool.NavFragmentPagerAdapter;
+import com.example.jiangxinhou01.medicineandroid.Tool.SocketService;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHGlobalTool;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHNetGlobal;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements FirstFragment.OnFragmentInteractionListener,
-        HomeFragment.OnFragmentInteractionListener {
+        LoginFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
+        LoginFormFragment.OnFragmentInteractionListener,
+        SignInFormFragment.OnFragmentInteractionListener{
 
     private ViewPager viewpager;
     private List<Fragment>fragments;
@@ -36,15 +47,15 @@ public class MainActivity extends AppCompatActivity
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_operation:
+                case R.id.navigation_first:
                     viewpager.setCurrentItem(0);
                     return true;
-                case R.id.navigation_account:
+                case R.id.navigation_login:
                     viewpager.setCurrentItem(1);
                     return true;
-                //case R.id.navigation_server:
-                  //  viewpager.setCurrentItem(2);
-                    //return true;
+                case R.id.navigation_home:
+                    viewpager.setCurrentItem(2);
+                    return true;
             }
             return false;
         }
@@ -91,6 +102,7 @@ public class MainActivity extends AppCompatActivity
         viewpager = (ViewPager)findViewById(R.id.viewPager);
         fragments = new ArrayList<Fragment>();
         fragments.add(new FirstFragment());
+        fragments.add(new LoginFragment());
         fragments.add(new HomeFragment());
 
         FragmentManager fm = getSupportFragmentManager();

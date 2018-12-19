@@ -1,11 +1,13 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Tool;
 
 import android.widget.Toast;
-import android.content.Context;
-class XHGlobalTool {
+
+import com.example.jiangxinhou01.medicineandroid.Main.MainActivity;
+
+public class XHGlobalTool {
     private static final XHGlobalTool ourInstance = new XHGlobalTool();
 
-    static XHGlobalTool getInstance() {
+    public static XHGlobalTool getInstance() {
         return ourInstance;
     }
 

@@ -1,4 +1,4 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Main;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,17 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.jiangxinhou01.medicineandroid.R;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHNetGlobal;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FirstFragment.OnFragmentInteractionListener} interface
+ * {@link HomeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FirstFragment#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FirstFragment extends Fragment {
+public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +34,12 @@ public class FirstFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FirstFragment() {
+    private EditText input_ip = null;
+    private EditText input_port = null;
+    private Button btn_connect = null;
+    private Button btn_disconnect = null;
+
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +49,11 @@ public class FirstFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstFragment.
+     * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
-        FirstFragment fragment = new FirstFragment();
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +74,7 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +114,32 @@ public class FirstFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        input_ip = (EditText)getView().findViewById(R.id.input_ip);
+        input_port = (EditText)getView().findViewById(R.id.input_port);
+        btn_connect = (Button)getView().findViewById(R.id.btn_connect);
+        btn_disconnect = (Button)getView().findViewById(R.id.btn_disconnect);
+
+        btn_connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ip = input_ip.getText().toString();
+                int port = Integer.parseInt(input_port.getText().toString());
+                XHNetGlobal.getInstance().setSocketIPandPort(ip,port);
+                MainActivity activity = (MainActivity)getActivity();
+                activity.ConnectSocket();
+            }
+        });
+        btn_disconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity)getActivity();
+                activity.DisConnectSocket();
+            }
+        });
     }
 }

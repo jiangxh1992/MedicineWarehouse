@@ -1,4 +1,4 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Tool;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package com.example.jiangxinhou01.medicineandroid;
+package com.example.jiangxinhou01.medicineandroid.Tool;
 
 import android.annotation.SuppressLint;
 import android.app.Service;
@@ -48,6 +48,11 @@ public class SocketService extends Service {
     public void onCreate(){
         super.onCreate();
         initSocketClient();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
     }
 
     public void SendMessage(final String msg){
