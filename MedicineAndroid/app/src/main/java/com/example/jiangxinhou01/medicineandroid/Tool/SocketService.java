@@ -127,9 +127,9 @@ public class SocketService extends Service {
                 byte buffer[] = new byte[1024];
                 int count = inputStream.read(buffer);
                 String receivedData = new String(buffer,0,count);
-                Message msg = handler.obtainMessage();
-                msg.what = 2;
-                msg.obj = receivedData;
+                //Message msg = handler.obtainMessage();
+                //msg.what = 2;
+                //msg.obj = receivedData;
                 //handler.sendMessage(msg);
 
                 Message msg2 = XHNetGlobal.msgCBHandler.obtainMessage();

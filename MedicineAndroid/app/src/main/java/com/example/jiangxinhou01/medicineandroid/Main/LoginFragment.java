@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.jiangxinhou01.medicineandroid.Main.Login.AccountFormFragment;
 import com.example.jiangxinhou01.medicineandroid.Main.Login.LoginFormFragment;
 import com.example.jiangxinhou01.medicineandroid.Main.Login.SignInFormFragment;
 import com.example.jiangxinhou01.medicineandroid.R;
@@ -126,6 +127,7 @@ public class LoginFragment extends Fragment{
 
         viewPager = (ViewPager)getView().findViewById(R.id.loginViewPager);
         fragments = new ArrayList<Fragment>();
+        fragments.add(new AccountFormFragment());
         fragments.add(new LoginFormFragment());
         fragments.add(new SignInFormFragment());
 

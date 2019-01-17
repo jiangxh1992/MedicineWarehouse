@@ -1,14 +1,26 @@
 package com.example.jiangxinhou01.medicineandroid.Main.Login;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.jiangxinhou01.medicineandroid.R;
+import com.example.jiangxinhou01.medicineandroid.Tool.AccountGlobal;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHGlobalTool;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHNetGlobal;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +41,11 @@ public class SignInFormFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private EditText input_username;
+    private EditText input_password;
+    private EditText input_confirm;
+    private Button btn_sginin;
 
     public SignInFormFragment() {
         // Required empty public constructor
@@ -105,5 +122,61 @@ public class SignInFormFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @SuppressLint("HandlerLeak")
+    @Override
+    public void onStart() {
+        super.onStart();
+        input_username = (EditText)getView().findViewById(R.id.input_signin_username);
+        input_password = (EditText)getView().findViewById(R.id.input_signin_password);
+        input_confirm = (EditText)getView().findViewById(R.id.input_signin_confirm);
+        btn_sginin = (Button)getView().findViewById(R.id.btn_signin_signin);
+
+        btn_sginin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = input_username.getText().toString();
+                String password = input_password.getText().toString();
+                String confirm = input_confirm.getText().toString();
+                if(password.length() <= 0 || confirm.length() <= 0){
+                    XHGlobalTool.toastText("输入不能为空！");
+                    return;
+                }
+                if(password != confirm){
+                    XHGlobalTool.toastText("密码两次输入不一致！");
+                    return;
+                }
+
+                JSONObject jsonObj = new JSONObject();
+                try{
+                    jsonObj.put("type",100);
+                    jsonObj.put("name",username);
+                    jsonObj.put("password",password);
+                    XHNetGlobal.getInstance().SendMessage(jsonObj.toString());
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        if(XHNetGlobal.msgHandlerSignin == null){
+            // 服务器响应
+            XHNetGlobal.msgHandlerSignin  = new Handler(){
+                public void handleMessage(Message msg){
+                    String jsonStr = (String)msg.obj;
+                    try{
+                        JSONObject json = new JSONObject(jsonStr);
+                        if(json.getInt("status") == 0){
+                            XHGlobalTool.toastText("注册成功！");
+                            ViewPager viewPager = (ViewPager)getParentFragment().getView().findViewById(R.id.loginViewPager);
+                            viewPager.setCurrentItem(1);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            };
+        }
     }
 }

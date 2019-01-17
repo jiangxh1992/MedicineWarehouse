@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.jiangxinhou01.medicineandroid.Main.Login.AccountFormFragment;
 import com.example.jiangxinhou01.medicineandroid.Main.Login.LoginFormFragment;
 import com.example.jiangxinhou01.medicineandroid.Main.Login.SignInFormFragment;
 import com.example.jiangxinhou01.medicineandroid.R;
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity
         implements FirstFragment.OnFragmentInteractionListener,
         LoginFragment.OnFragmentInteractionListener,
         HomeFragment.OnFragmentInteractionListener,
+        AccountFormFragment.OnFragmentInteractionListener,
         LoginFormFragment.OnFragmentInteractionListener,
         SignInFormFragment.OnFragmentInteractionListener{
 
@@ -71,15 +71,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
-
-        // 服务器返回数据
-        XHNetGlobal.msgCBHandler = new Handler(){
-            public void handleMessage(Message msg){
-                String dataStr = (String)msg.obj;
-                XHGlobalTool.toastText("服务器返回数据："+dataStr);
-                XHNetGlobal.getInstance().SendMessage("服务器你好！");
-            }
-        };
     }
 
     @Override

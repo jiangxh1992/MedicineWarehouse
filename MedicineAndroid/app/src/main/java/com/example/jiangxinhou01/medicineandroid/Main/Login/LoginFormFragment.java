@@ -1,8 +1,11 @@
 package com.example.jiangxinhou01.medicineandroid.Main.Login;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,6 +16,13 @@ import android.widget.EditText;
 
 import com.example.jiangxinhou01.medicineandroid.Main.LoginFragment;
 import com.example.jiangxinhou01.medicineandroid.R;
+import com.example.jiangxinhou01.medicineandroid.Tool.AccountGlobal;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHGlobalTool;
+import com.example.jiangxinhou01.medicineandroid.Tool.XHNetGlobal;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,7 +78,6 @@ public class LoginFormFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
         this.getParentFragment();
     }
 
@@ -118,6 +127,7 @@ public class LoginFormFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    @SuppressLint("HandlerLeak")
     @Override
     public void onStart() {
         super.onStart();
@@ -134,6 +144,15 @@ public class LoginFormFragment extends Fragment {
             public void onClick(View view) {
                 String username = input_username.getText().toString();
                 String password = input_password.getText().toString();
+                if(username.isEmpty() || password.isEmpty()){
+                    XHGlobalTool.toastText("输入不能为空！");
+                }
+                HashMap param = new HashMap();
+                param.put("type",0);
+                param.put("name",username);
+                param.put("password",password);
+                JSONObject json = new JSONObject(param);
+                XHNetGlobal.getInstance().SendMessage(json.toString());
             }
         });
 
@@ -141,8 +160,29 @@ public class LoginFormFragment extends Fragment {
             @Override
             public void onClick(View view) {
                ViewPager viewPager = (ViewPager)getParentFragment().getView().findViewById(R.id.loginViewPager);
-               viewPager.setCurrentItem(1);
+               viewPager.setCurrentItem(2);
             }
         });
+
+        // 服务器响应
+        if(XHNetGlobal.msgHandlerLogin == null){
+            XHNetGlobal.msgHandlerLogin  = new Handler(){
+                public void handleMessage(Message msg){
+                    String jsonStr = (String)msg.obj;
+                    try{
+                        JSONObject json = new JSONObject(jsonStr);
+                        if(json.getInt("status") == 0){
+                            XHGlobalTool.toastText("登录成功！");
+                            AccountGlobal.getInstance().isLogin = true;
+                            AccountGlobal.getInstance().account.username = json.getString("name");
+                            ViewPager viewPager = (ViewPager)getParentFragment().getView().findViewById(R.id.loginViewPager);
+                            viewPager.setCurrentItem(0);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            };
+        }
     }
 }

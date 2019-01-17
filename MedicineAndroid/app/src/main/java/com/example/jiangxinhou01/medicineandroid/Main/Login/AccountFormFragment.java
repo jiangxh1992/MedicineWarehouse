@@ -1,31 +1,28 @@
-package com.example.jiangxinhou01.medicineandroid.Main;
+package com.example.jiangxinhou01.medicineandroid.Main.Login;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.jiangxinhou01.medicineandroid.R;
-import com.example.jiangxinhou01.medicineandroid.Tool.XHGlobalTool;
-import com.example.jiangxinhou01.medicineandroid.Tool.XHNetGlobal;
-
+import com.example.jiangxinhou01.medicineandroid.Tool.AccountGlobal;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link AccountFormFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link AccountFormFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class AccountFormFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,12 +34,10 @@ public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private EditText input_ip = null;
-    private EditText input_port = null;
-    private Button btn_connect = null;
-    private Button btn_disconnect = null;
+    private TextView text_username;
+    private Button btn_logout;
 
-    public HomeFragment() {
+    public AccountFormFragment() {
         // Required empty public constructor
     }
 
@@ -52,11 +47,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment AccountFormFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static AccountFormFragment newInstance(String param1, String param2) {
+        AccountFormFragment fragment = new AccountFormFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,7 +72,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_account_form, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -122,30 +117,34 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        input_ip = (EditText)getView().findViewById(R.id.input_ip);
-        input_port = (EditText)getView().findViewById(R.id.input_port);
-        btn_connect = (Button)getView().findViewById(R.id.btn_connect);
-        btn_disconnect = (Button)getView().findViewById(R.id.btn_disconnect);
-
-        btn_connect.setOnClickListener(new View.OnClickListener() {
+        text_username = (TextView)getView().findViewById(R.id.account_username);
+        btn_logout = (Button)getView().findViewById(R.id.account_logout);
+        btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String ip = input_ip.getText().toString();
-                int port = Integer.parseInt(input_port.getText().toString());
-                XHNetGlobal.getInstance().setSocketIPandPort(ip,port);
-                MainActivity activity = (MainActivity)getActivity();
-                activity.ConnectSocket();
-            }
-        });
-        btn_disconnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity activity = (MainActivity)getActivity();
-                activity.DisConnectSocket();
+                logout();
             }
         });
 
-        XHNetGlobal.initMsgListener();
+        // 刷新用户信息
+        text_username.setText(AccountGlobal.getInstance().account.username);
 
+        // 检测是否登录
+        checkLogin();
+    }
+
+    // 注销账户
+    private void logout(){
+        AccountGlobal.getInstance().isLogin = false;
+        checkLogin();
+    }
+
+    // 检测是否登录
+    private void checkLogin(){
+        if(!AccountGlobal.getInstance().isLogin){
+            ViewPager viewPager = (ViewPager)getParentFragment().getView().findViewById(R.id.loginViewPager);
+            viewPager.setCurrentItem(1);
+            return;
+        }
     }
 }
